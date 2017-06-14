@@ -1,4 +1,4 @@
-package com.benz;
+package com.sharingplatform;
 
 import com.sharingplatform.framework.jpa.BaseRepositoryImpl;
 import org.springframework.boot.SpringApplication;
