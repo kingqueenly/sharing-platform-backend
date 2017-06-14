@@ -1,7 +1,7 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
-import com.benz.framework.domain.DomainEventPublisher;
-import com.benz.usecase.domain.event.CommentCreatedEvent;
+import com.sharingplatform.framework.domain.DomainEventPublisher;
+import com.sharingplatform.usecase.domain.event.CommentCreatedEvent;
 
 import java.util.Date;
 

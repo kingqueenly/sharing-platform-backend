@@ -1,16 +1,16 @@
-package com.benz.usecase.adapter.web;
+package com.sharingplatform.usecase.adapter.web;
 
-import com.benz.framework.domain.QueryParameter;
-import com.benz.framework.query.PagedList;
-import com.benz.usecase.application.UseCaseApplicationService;
-import com.benz.usecase.application.UseCaseCreateCommand;
-import com.benz.usecase.application.UseCaseUpdateCommand;
-import com.benz.usecase.domain.CategoryList;
-import com.benz.usecase.domain.PhaseList;
-import com.benz.usecase.query.CategoryListParameter;
-import com.benz.usecase.query.UseCaseParameter;
-import com.benz.usecase.query.UseCaseQuery;
-import com.benz.usecase.query.UseCaseResult;
+import com.sharingplatform.framework.domain.QueryParameter;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.usecase.application.UseCaseApplicationService;
+import com.sharingplatform.usecase.application.UseCaseCreateCommand;
+import com.sharingplatform.usecase.application.UseCaseUpdateCommand;
+import com.sharingplatform.usecase.domain.CategoryList;
+import com.sharingplatform.usecase.domain.PhaseList;
+import com.sharingplatform.usecase.query.CategoryListParameter;
+import com.sharingplatform.usecase.query.UseCaseParameter;
+import com.sharingplatform.usecase.query.UseCaseQuery;
+import com.sharingplatform.usecase.query.UseCaseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

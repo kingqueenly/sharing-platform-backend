@@ -1,9 +1,9 @@
-package com.benz.usecase.adapter.service;
+package com.sharingplatform.usecase.adapter.service;
 
-import com.benz.usecase.domain.UserInfo;
-import com.benz.usecase.domain.UserInfoService;
-import com.benz.user.query.UserQuery;
-import com.benz.user.query.UserProfile;
+import com.sharingplatform.usecase.domain.UserInfo;
+import com.sharingplatform.usecase.domain.UserInfoService;
+import com.sharingplatform.user.query.UserQuery;
+import com.sharingplatform.user.query.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

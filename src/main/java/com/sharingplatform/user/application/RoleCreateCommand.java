@@ -1,6 +1,6 @@
-package com.benz.user.application;
+package com.sharingplatform.user.application;
 
-import com.benz.framework.domain.ServiceCommand;
+import com.sharingplatform.framework.domain.ServiceCommand;
 
 /**
  * Created by paulliu on 2016/12/12.

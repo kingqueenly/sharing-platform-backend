@@ -1,4 +1,4 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
 import java.util.ArrayList;
 import java.util.List;

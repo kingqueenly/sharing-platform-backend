@@ -1,4 +1,4 @@
-package com.benz.interceptor.domain;
+package com.sharingplatform.interceptor.domain;
 
 /**
  * Created by hongying.fu on 4/12/2017.

@@ -1,4 +1,4 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
 /**
  * Created by hongying.fu on 12/22/2016.

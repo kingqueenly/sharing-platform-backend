@@ -1,9 +1,9 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
-import com.benz.framework.AssertionConcern;
-import com.benz.usecase.domain.DataAnalysisModel;
-import com.benz.usecase.domain.DataAnalysisModelRepository;
-import com.benz.usecase.domain.DataSource;
+import com.sharingplatform.framework.AssertionConcern;
+import com.sharingplatform.usecase.domain.DataAnalysisModel;
+import com.sharingplatform.usecase.domain.DataAnalysisModelRepository;
+import com.sharingplatform.usecase.domain.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

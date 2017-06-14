@@ -1,6 +1,6 @@
-package com.benz.user.domain.event;
+package com.sharingplatform.user.domain.event;
 
-import com.benz.framework.domain.DomainEvent;
+import com.sharingplatform.framework.domain.DomainEvent;
 
 /**
  * Created by paulliu on 2017/1/17.

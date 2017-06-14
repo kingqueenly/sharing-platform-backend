@@ -1,4 +1,4 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
 import java.util.Date;
 

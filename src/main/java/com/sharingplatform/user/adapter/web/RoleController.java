@@ -1,17 +1,17 @@
-package com.benz.user.adapter.web;
+package com.sharingplatform.user.adapter.web;
 
-import com.benz.framework.domain.QueryParameter;
-import com.benz.framework.query.PagedList;
-import com.benz.usecase.application.BUApplicationService;
-import com.benz.usecase.application.BUCreateCommand;
-import com.benz.usecase.application.BUUpdateCommand;
-import com.benz.usecase.query.BUQuery;
-import com.benz.usecase.query.BUResult;
-import com.benz.user.application.RoleApplicationService;
-import com.benz.user.application.RoleCreateCommand;
-import com.benz.user.application.RoleUpdateCommand;
-import com.benz.user.query.RoleQuery;
-import com.benz.user.query.RoleResult;
+import com.sharingplatform.framework.domain.QueryParameter;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.usecase.application.BUApplicationService;
+import com.sharingplatform.usecase.application.BUCreateCommand;
+import com.sharingplatform.usecase.application.BUUpdateCommand;
+import com.sharingplatform.usecase.query.BUQuery;
+import com.sharingplatform.usecase.query.BUResult;
+import com.sharingplatform.user.application.RoleApplicationService;
+import com.sharingplatform.user.application.RoleCreateCommand;
+import com.sharingplatform.user.application.RoleUpdateCommand;
+import com.sharingplatform.user.query.RoleQuery;
+import com.sharingplatform.user.query.RoleResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

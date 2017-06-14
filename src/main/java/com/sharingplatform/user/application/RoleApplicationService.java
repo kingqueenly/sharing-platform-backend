@@ -1,12 +1,12 @@
-package com.benz.user.application;
+package com.sharingplatform.user.application;
 
-import com.benz.framework.AssertionConcern;
-import com.benz.usecase.application.BUCreateCommand;
-import com.benz.usecase.application.BUUpdateCommand;
-import com.benz.usecase.domain.ContribitionBURepository;
-import com.benz.usecase.domain.ContributionBU;
-import com.benz.user.domain.Role;
-import com.benz.user.domain.RoleRepository;
+import com.sharingplatform.framework.AssertionConcern;
+import com.sharingplatform.usecase.application.BUCreateCommand;
+import com.sharingplatform.usecase.application.BUUpdateCommand;
+import com.sharingplatform.usecase.domain.ContribitionBURepository;
+import com.sharingplatform.usecase.domain.ContributionBU;
+import com.sharingplatform.user.domain.Role;
+import com.sharingplatform.user.domain.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

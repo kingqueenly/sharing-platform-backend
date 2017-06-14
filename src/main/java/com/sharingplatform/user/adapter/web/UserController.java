@@ -1,15 +1,15 @@
-package com.benz.user.adapter.web;
+package com.sharingplatform.user.adapter.web;
 
-import com.benz.framework.domain.ServiceCommand;
-import com.benz.framework.query.PagedList;
-import com.benz.user.application.UserApplicationService;
-import com.benz.user.application.UserCreateCommand;
-import com.benz.user.application.UserUpdateCommand;
-import com.benz.user.domain.Organization;
-import com.benz.user.query.LevelResult;
-import com.benz.user.query.UserParameter;
-import com.benz.user.query.UserProfile;
-import com.benz.user.query.UserQuery;
+import com.sharingplatform.framework.domain.ServiceCommand;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.user.application.UserApplicationService;
+import com.sharingplatform.user.application.UserCreateCommand;
+import com.sharingplatform.user.application.UserUpdateCommand;
+import com.sharingplatform.user.domain.Organization;
+import com.sharingplatform.user.query.LevelResult;
+import com.sharingplatform.user.query.UserParameter;
+import com.sharingplatform.user.query.UserProfile;
+import com.sharingplatform.user.query.UserQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

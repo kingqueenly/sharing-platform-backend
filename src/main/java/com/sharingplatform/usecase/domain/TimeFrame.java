@@ -1,6 +1,6 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
-import com.benz.framework.AssertionConcern;
+import com.sharingplatform.framework.AssertionConcern;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Temporal;

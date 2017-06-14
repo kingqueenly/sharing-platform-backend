@@ -1,7 +1,7 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
-import com.benz.framework.domain.QueryParameter;
-import com.benz.usecase.query.BUResult;
+import com.sharingplatform.framework.domain.QueryParameter;
+import com.sharingplatform.usecase.query.BUResult;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

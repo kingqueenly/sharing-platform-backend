@@ -1,6 +1,6 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
-import com.benz.user.query.UserProfile;
+import com.sharingplatform.user.query.UserProfile;
 
 import java.util.List;
 

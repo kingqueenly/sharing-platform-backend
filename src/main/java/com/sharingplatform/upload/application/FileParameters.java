@@ -1,4 +1,4 @@
-package com.benz.upload.application;
+package com.sharingplatform.upload.application;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

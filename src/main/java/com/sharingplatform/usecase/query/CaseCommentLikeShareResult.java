@@ -1,6 +1,6 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
-import com.benz.usecase.domain.DomainRegistry;
+import com.sharingplatform.usecase.domain.DomainRegistry;
 
 /**
  * Created by hongying.fu on 1/14/2017.

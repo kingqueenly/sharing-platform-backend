@@ -1,7 +1,7 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
-import com.benz.framework.mvc.SpringBootApplicationContext;
-import com.benz.user.domain.UserRepository;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.user.domain.UserRepository;
 import org.springframework.context.ApplicationEventPublisher;
 
 /**

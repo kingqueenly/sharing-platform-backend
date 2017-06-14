@@ -1,4 +1,4 @@
-package com.benz.framework.jpa;
+package com.sharingplatform.framework.jpa;
 
 import org.hibernate.dialect.Oracle12cDialect;
 

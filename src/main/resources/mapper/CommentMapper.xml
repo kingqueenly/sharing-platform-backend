@@ -1,7 +1,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.usecase.query.CommentMapper">
-    <select id="searchCommentByUseCaseId" parameterType="com.benz.usecase.query.CommentParameter" resultMap="commentResultMap">
+<mapper namespace="com.sharingplatform.usecase.query.CommentMapper">
+    <select id="searchCommentByUseCaseId" parameterType="com.sharingplatform.usecase.query.CommentParameter" resultMap="commentResultMap">
 
 	   SELECT
 	      bu.id AS buId,
@@ -16,7 +16,7 @@
          use_case_id=#{useCaseId} AND parent_comment_id is NULL
          ORDER BY pc.create_time DESC
     </select>
-    <resultMap id="commentResultMap" type="com.benz.usecase.query.CommentResult">
+    <resultMap id="commentResultMap" type="com.sharingplatform.usecase.query.CommentResult">
         <id column="pcId" property="id"></id>
         <result column="pcContent" property="content"></result>
         <result column="pcCreateTime" property="createTime"></result>
@@ -25,7 +25,7 @@
         <result column="buUrl" property="userImgUrl"></result>
         <collection property="children" select="getChildrenByParentId" column="pcId"></collection>
     </resultMap>
-    <select id="getChildrenByParentId" parameterType="java.lang.String" resultType="com.benz.usecase.query.CommentResult">
+    <select id="getChildrenByParentId" parameterType="java.lang.String" resultType="com.sharingplatform.usecase.query.CommentResult">
         SELECT
           childC.id AS id,
           childC.content AS content,
@@ -39,11 +39,11 @@
         WHERE childC.parent_comment_id=#{pcId}
         ORDER BY childC.create_time DESC
     </select>
-    <resultMap id="userParentResultMap" type="com.benz.usecase.query.UserInfo">
+    <resultMap id="userParentResultMap" type="com.sharingplatform.usecase.query.UserInfo">
         <result column="parentUserName" property="name"></result>
         <result column="parentImgUrl" property="imgUrl"></result>
     </resultMap>
-    <resultMap id="userChildResultMap" type="com.benz.usecase.query.UserInfo">
+    <resultMap id="userChildResultMap" type="com.sharingplatform.usecase.query.UserInfo">
         <result column="childUserName" property="name"></result>
         <result column="childImgUrl" property="imgUrl"></result>
     </resultMap>

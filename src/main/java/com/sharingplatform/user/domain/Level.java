@@ -1,4 +1,4 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
 /**
  * Created by hongying.fu on 1/18/2017.

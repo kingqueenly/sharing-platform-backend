@@ -1,8 +1,8 @@
-package com.benz.user.adapter.listener;
+package com.sharingplatform.user.adapter.listener;
 
-import com.benz.framework.domain.DomainEventListener;
-import com.benz.usecase.domain.event.UseCaseViewedEvent;
-import com.benz.user.domain.score.ViewCaseRule;
+import com.sharingplatform.framework.domain.DomainEventListener;
+import com.sharingplatform.usecase.domain.event.UseCaseViewedEvent;
+import com.sharingplatform.user.domain.score.ViewCaseRule;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

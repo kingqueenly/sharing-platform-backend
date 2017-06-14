@@ -1,4 +1,4 @@
-package com.benz.framework.query;
+package com.sharingplatform.framework.query;
 
 import java.util.List;
 

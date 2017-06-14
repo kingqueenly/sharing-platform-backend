@@ -1,4 +1,4 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;

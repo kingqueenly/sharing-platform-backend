@@ -1,4 +1,4 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
 public class UserInfo {
     private String id;

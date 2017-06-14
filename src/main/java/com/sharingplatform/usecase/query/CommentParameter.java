@@ -1,6 +1,6 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
-import com.benz.framework.domain.QueryParameter;
+import com.sharingplatform.framework.domain.QueryParameter;
 
 /**
  * Created by hongying.fu on 1/13/2017.

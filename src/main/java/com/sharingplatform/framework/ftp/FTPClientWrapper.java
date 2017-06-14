@@ -1,6 +1,6 @@
-package com.benz.framework.ftp;
+package com.sharingplatform.framework.ftp;
 
-import com.benz.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 

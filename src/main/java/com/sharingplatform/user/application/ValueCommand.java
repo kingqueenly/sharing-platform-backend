@@ -1,4 +1,4 @@
-package com.benz.user.application;
+package com.sharingplatform.user.application;
 
 /**
  * Created by Administrator on 5/2/2017.

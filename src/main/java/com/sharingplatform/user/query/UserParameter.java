@@ -1,6 +1,6 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
-import com.benz.framework.domain.QueryParameter;
+import com.sharingplatform.framework.domain.QueryParameter;
 
 /**
  * Created by paulliu on 2017/1/19.

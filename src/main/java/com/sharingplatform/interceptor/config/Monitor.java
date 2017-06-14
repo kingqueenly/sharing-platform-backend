@@ -1,7 +1,7 @@
-package com.benz.interceptor.config;
+package com.sharingplatform.interceptor.config;
 
-import com.benz.framework.domain.Operator;
-import com.benz.user.domain.BenzUser;
+import com.sharingplatform.framework.domain.Operator;
+import com.sharingplatform.user.domain.BenzUser;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 @Aspect
 public class Monitor {
-    @Before("execution(* com.benz..adapter.web.*Controller.*(..))")
+    @Before("execution(* com.sharingplatform..adapter.web.*Controller.*(..))")
     public void invoke(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();

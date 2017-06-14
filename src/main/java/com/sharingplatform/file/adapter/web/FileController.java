@@ -1,7 +1,7 @@
-package com.benz.file.adapter.web;
+package com.sharingplatform.file.adapter.web;
 
-import com.benz.file.application.FileApplicationService;
-import com.benz.file.application.FileResult;
+import com.sharingplatform.file.application.FileApplicationService;
+import com.sharingplatform.file.application.FileResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

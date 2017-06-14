@@ -1,6 +1,6 @@
-package com.benz.file.application;
+package com.sharingplatform.file.application;
 
-import com.benz.file.domain.FTPUpload;
+import com.sharingplatform.file.domain.FTPUpload;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;

@@ -1,7 +1,7 @@
-package com.benz.upload.application;
+package com.sharingplatform.upload.application;
 
-import com.benz.file.application.FileResult;
-import com.benz.upload.domain.FileUpload;
+import com.sharingplatform.file.application.FileResult;
+import com.sharingplatform.upload.domain.FileUpload;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

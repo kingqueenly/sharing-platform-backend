@@ -1,6 +1,6 @@
-package com.benz.framework.query;
+package com.sharingplatform.framework.query;
 
-import com.benz.framework.domain.QueryParameter;
+import com.sharingplatform.framework.domain.QueryParameter;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 

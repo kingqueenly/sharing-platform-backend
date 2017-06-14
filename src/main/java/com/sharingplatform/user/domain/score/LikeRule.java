@@ -1,4 +1,4 @@
-package com.benz.user.domain.score;
+package com.sharingplatform.user.domain.score;
 
 /**
  * Created by paulliu on 2017/1/17.

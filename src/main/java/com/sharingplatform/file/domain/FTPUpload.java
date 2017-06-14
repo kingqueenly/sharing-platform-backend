@@ -1,6 +1,6 @@
-package com.benz.file.domain;
+package com.sharingplatform.file.domain;
 
-import com.benz.framework.ftp.FTPClientWrapper;
+import com.sharingplatform.framework.ftp.FTPClientWrapper;
 
 import java.io.File;
 import java.io.InputStream;

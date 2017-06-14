@@ -1,4 +1,4 @@
-package com.benz.interceptor;
+package com.sharingplatform.interceptor;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

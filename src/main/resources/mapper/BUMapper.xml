@@ -1,6 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.usecase.query.BUMapper">
+<mapper namespace="com.sharingplatform.usecase.query.BUMapper">
 
     <select id="findAll" resultMap="resultBu">
         SELECT
@@ -30,13 +30,13 @@
         ORDER BY id
     </select>
 
-    <resultMap id="resultBu" type="com.benz.usecase.query.BUResult">
+    <resultMap id="resultBu" type="com.sharingplatform.usecase.query.BUResult">
         <id column="id" property="id"></id>
         <result column="text" property="text"></result>
         <result column="org" property="org"></result>
         <result column="dept" property="dept"></result>
     </resultMap>
-    <resultMap id="resultValue" type="com.benz.usecase.query.ValueResult">
+    <resultMap id="resultValue" type="com.sharingplatform.usecase.query.ValueResult">
         <id column="id" property="id"></id>
         <result column="text" property="text"></result>
     </resultMap>

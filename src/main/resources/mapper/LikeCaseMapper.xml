@@ -1,6 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.usecase.query.LikeCaseMapper">
+<mapper namespace="com.sharingplatform.usecase.query.LikeCaseMapper">
     <select id="findByUserIdUseCaseId" parameterType="java.util.Map" resultMap="likeCaseResultMap">
         SELECT *
         FROM like_case
@@ -8,13 +8,13 @@
         user_id=#{userId} AND
         use_case_id=#{useCaseId}
     </select>
-    <resultMap id="likeCaseResultMap" type="com.benz.usecase.domain.LikeCase">
+    <resultMap id="likeCaseResultMap" type="com.sharingplatform.usecase.domain.LikeCase">
         <id column="id" property="id"></id>
         <result column="create_time" property="createTime"></result>
         <result column="use_case_id" property="useCaseId"></result>
-        <association property="userInfo" javaType="com.benz.usecase.domain.UserInfo" resultMap="userInfoResultMpa"></association>
+        <association property="userInfo" javaType="com.sharingplatform.usecase.domain.UserInfo" resultMap="userInfoResultMpa"></association>
     </resultMap>
-    <resultMap id="userInfoResultMpa" type="com.benz.usecase.domain.UserInfo">
+    <resultMap id="userInfoResultMpa" type="com.sharingplatform.usecase.domain.UserInfo">
         <result column="user_id" property="id"></result>
     </resultMap>
 </mapper>

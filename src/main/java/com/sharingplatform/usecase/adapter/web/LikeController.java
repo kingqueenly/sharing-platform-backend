@@ -1,8 +1,8 @@
-package com.benz.usecase.adapter.web;
+package com.sharingplatform.usecase.adapter.web;
 
-import com.benz.usecase.application.LikeApplicationService;
-import com.benz.usecase.application.LikeCommand;
-import com.benz.usecase.domain.LikeCase;
+import com.sharingplatform.usecase.application.LikeApplicationService;
+import com.sharingplatform.usecase.application.LikeCommand;
+import com.sharingplatform.usecase.domain.LikeCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

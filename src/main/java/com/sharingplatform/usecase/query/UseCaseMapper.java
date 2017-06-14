@@ -1,6 +1,6 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
-import com.benz.usecase.domain.CaseCommentLikeShare;
+import com.sharingplatform.usecase.domain.CaseCommentLikeShare;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

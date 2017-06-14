@@ -1,11 +1,11 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
-import com.benz.framework.domain.QueryParameter;
-import com.benz.framework.query.BaseQuery;
-import com.benz.framework.query.PageParameter;
-import com.benz.framework.query.PagedList;
-import com.benz.usecase.query.BUMapper;
-import com.benz.usecase.query.BUResult;
+import com.sharingplatform.framework.domain.QueryParameter;
+import com.sharingplatform.framework.query.BaseQuery;
+import com.sharingplatform.framework.query.PageParameter;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.usecase.query.BUMapper;
+import com.sharingplatform.usecase.query.BUResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

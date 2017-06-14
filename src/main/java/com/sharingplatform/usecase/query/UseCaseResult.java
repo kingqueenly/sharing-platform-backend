@@ -1,6 +1,6 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
-import com.benz.usecase.domain.ContributionBU;
+import com.sharingplatform.usecase.domain.ContributionBU;
 
 import java.util.List;
 

@@ -1,12 +1,12 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
-import com.benz.framework.query.BaseQuery;
-import com.benz.framework.query.PageParameter;
-import com.benz.framework.query.PagedList;
-import com.benz.user.domain.BenzUser;
-import com.benz.user.domain.Department;
-import com.benz.user.domain.Organization;
-import com.benz.user.domain.event.LoginedEvent;
+import com.sharingplatform.framework.query.BaseQuery;
+import com.sharingplatform.framework.query.PageParameter;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.user.domain.BenzUser;
+import com.sharingplatform.user.domain.Department;
+import com.sharingplatform.user.domain.Organization;
+import com.sharingplatform.user.domain.event.LoginedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;

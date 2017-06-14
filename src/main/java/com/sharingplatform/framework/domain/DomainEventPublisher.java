@@ -1,6 +1,6 @@
-package com.benz.framework.domain;
+package com.sharingplatform.framework.domain;
 
-import com.benz.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
 
 /**
  * Created by paulliu on 2017/1/18.

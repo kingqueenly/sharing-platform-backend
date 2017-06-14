@@ -1,6 +1,6 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
-import com.benz.framework.AssertionConcern;
+import com.sharingplatform.framework.AssertionConcern;
 
 /**
  * Created by paulliu on 2016/12/12.

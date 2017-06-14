@@ -1,8 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.user.query.UserMapper">
+<mapper namespace="com.sharingplatform.user.query.UserMapper">
 
-    <resultMap id="userResultMap" type="com.benz.user.query.UserProfile">
+    <resultMap id="userResultMap" type="com.sharingplatform.user.query.UserProfile">
         <id column="id" property="id"></id>
         <result column="user_id" property="userId"></result>
         <result column="appellation" property="appellation"></result>
@@ -50,7 +50,7 @@
         (u.deleted is null or u.deleted = 0) and u.id=#{id}
     </select>
 
-    <select id="auth" parameterType="java.lang.String" resultType="com.benz.user.query.UserIdentity">
+    <select id="auth" parameterType="java.lang.String" resultType="com.sharingplatform.user.query.UserIdentity">
         SELECT
           id,
           username,
@@ -61,7 +61,7 @@
          (deleted is null or deleted = 0) and username=#{usernmae}
     </select>
 
-    <select id="findAll" parameterType="com.benz.user.query.UserParameter" resultMap="userResultMap">
+    <select id="findAll" parameterType="com.sharingplatform.user.query.UserParameter" resultMap="userResultMap">
         SELECT
             u.id,
             u.user_id,
@@ -114,17 +114,17 @@
         LEVELS
         ORDER BY min_score DESC
     </select>
-    <resultMap id="levelResultMap" type="com.benz.user.query.LevelResult">
+    <resultMap id="levelResultMap" type="com.sharingplatform.user.query.LevelResult">
         <id column="id" property="id"></id>
         <result column="name" property="name"></result>
         <result column="min_score" property="minScore"></result>
         <result column="max_score" property="maxScore"></result>
     </resultMap>
 
-    <select id="findByUserId" parameterType="java.lang.String" resultType="com.benz.user.domain.BenzUser">
+    <select id="findByUserId" parameterType="java.lang.String" resultType="com.sharingplatform.user.domain.BenzUser">
         SELECT * FROM benz_user WHERE (deleted is null or deleted = 0) and upper(user_id)=#{id}
     </select>
-    <select id="getDataCommunity" parameterType="com.benz.user.query.UserParameter" resultMap="userResultMap">
+    <select id="getDataCommunity" parameterType="com.sharingplatform.user.query.UserParameter" resultMap="userResultMap">
         SELECT
             u.id,
             u.user_id,

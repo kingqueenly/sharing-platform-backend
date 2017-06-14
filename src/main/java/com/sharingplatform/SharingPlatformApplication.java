@@ -1,6 +1,6 @@
 package com.benz;
 
-import com.benz.framework.jpa.BaseRepositoryImpl;
+import com.sharingplatform.framework.jpa.BaseRepositoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

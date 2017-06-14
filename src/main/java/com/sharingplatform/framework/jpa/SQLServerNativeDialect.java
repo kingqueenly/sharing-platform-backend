@@ -1,4 +1,4 @@
-package com.benz.framework.jpa;
+package com.sharingplatform.framework.jpa;
 
 import org.hibernate.dialect.SQLServer2012Dialect;
 import org.hibernate.type.StandardBasicTypes;

@@ -1,8 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.usecase.query.UseCaseMapper">
+<mapper namespace="com.sharingplatform.usecase.query.UseCaseMapper">
 
-    <resultMap id="useCaseResultMap" type="com.benz.usecase.query.UseCaseResult">
+    <resultMap id="useCaseResultMap" type="com.sharingplatform.usecase.query.UseCaseResult">
         <id column="id" property="id"/>
         <result column="subject" property="subject"/>
         <result column="scenario" property="scenario"/>
@@ -28,43 +28,43 @@
         <result column="commentNum" property="commentNum"></result>
         <result column="shareNum" property="shareNum"></result>
         <result column="viewNum" property="viewNum"></result>
-        <collection property="analysisMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+        <collection property="analysisMethodResultFiles" ofType="com.sharingplatform.usecase.query.FileResult">
             <result column="aurl" property="url"/>
             <result column="afileName" property="fileName"/>
         </collection>
-        <collection property="contributionBU" ofType="com.benz.usecase.query.BUResult">
+        <collection property="contributionBU" ofType="com.sharingplatform.usecase.query.BUResult">
             <result column="cbuId" property="id"/>
             <result column="cbuText" property="text"/>
             <result column="cbuOrg" property="org"/>
             <result column="cbuDept" property="dept"/>
         </collection>
-        <collection property="validationMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+        <collection property="validationMethodResultFiles" ofType="com.sharingplatform.usecase.query.FileResult">
             <result column="vurl" property="url"/>
             <result column="vfileName" property="fileName"/>
         </collection>
-        <collection property="implMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+        <collection property="implMethodResultFiles" ofType="com.sharingplatform.usecase.query.FileResult">
             <result column="imurl" property="url"/>
             <result column="imfileName" property="fileName"/>
         </collection>
-        <collection property="attachments" ofType="com.benz.usecase.query.FileResult">
+        <collection property="attachments" ofType="com.sharingplatform.usecase.query.FileResult">
             <result column="atturl" property="url"/>
             <result column="attfileName" property="fileName"/>
         </collection>
-        <collection property="values" ofType="com.benz.usecase.query.ValueResult">
+        <collection property="values" ofType="com.sharingplatform.usecase.query.ValueResult">
             <result column="vid" property="id"/>
             <result column="vtext" property="text"/>
         </collection>
-        <collection property="dataSource" ofType="com.benz.usecase.query.ValueResult">
+        <collection property="dataSource" ofType="com.sharingplatform.usecase.query.ValueResult">
             <result column="dsid" property="id"/>
             <result column="dstext" property="text"/>
         </collection>
-        <collection property="dataAnalysisModel" ofType="com.benz.usecase.query.ValueResult">
+        <collection property="dataAnalysisModel" ofType="com.sharingplatform.usecase.query.ValueResult">
             <result column="damid" property="id"/>
             <result column="damtext" property="text"/>
         </collection>
     </resultMap>
 
-    <resultMap id="useCaseUserInfoResultMap" type="com.benz.usecase.query.UserInfo">
+    <resultMap id="useCaseUserInfoResultMap" type="com.sharingplatform.usecase.query.UserInfo">
         <result column="buUserName" property="name"></result>
         <result column="buImgUrl" property="imgUrl"></result>
         <result column="buDepartment" property="department"></result>
@@ -72,14 +72,14 @@
         <result column="buLevel" property="level"></result>
     </resultMap>
 
-    <resultMap id="caseCommentLikeShareResultMap" type="com.benz.usecase.query.CaseCommentLikeShareResult">
+    <resultMap id="caseCommentLikeShareResultMap" type="com.sharingplatform.usecase.query.CaseCommentLikeShareResult">
         <result column="likeNum" property="likeNum"></result>
         <result column="commentNum" property="commentNum"></result>
         <result column="shareNum" property="shareNum"></result>
         <result column="viewNum" property="viewNum"></result>
     </resultMap>
 
-    <resultMap id="findAllUseCaseResultMap" type="com.benz.usecase.query.UseCaseResult">
+    <resultMap id="findAllUseCaseResultMap" type="com.sharingplatform.usecase.query.UseCaseResult">
         <id column="id" property="id"/>
         <result column="subject" property="subject"/>
         <result column="scenario" property="scenario"/>
@@ -98,13 +98,13 @@
         <result column="shareNum" property="shareNum"></result>
         <result column="viewNum" property="viewNum"></result>
         <collection property="analysisMethodResultFiles" select="getAnalysisFilesByUseCaseId" column="id"></collection>
-        <collection property="values" ofType="com.benz.usecase.query.ValueResult">
+        <collection property="values" ofType="com.sharingplatform.usecase.query.ValueResult">
             <result column="vid" property="id"/>
             <result column="vtext" property="text"/>
         </collection>
     </resultMap>
 
-    <select id="getAnalysisFilesByUseCaseId" parameterType="java.lang.String" resultType="com.benz.usecase.query.FileResult">
+    <select id="getAnalysisFilesByUseCaseId" parameterType="java.lang.String" resultType="com.sharingplatform.usecase.query.FileResult">
         SELECT
         url,
         file_name
@@ -112,7 +112,7 @@
         WHERE use_case_id=#{id}
     </select>
 
-    <select id="findAll" resultMap="findAllUseCaseResultMap" parameterType="com.benz.usecase.query.UseCaseParameter">
+    <select id="findAll" resultMap="findAllUseCaseResultMap" parameterType="com.sharingplatform.usecase.query.UseCaseParameter">
         select DISTINCT
         uc.id AS id,
         subject,
@@ -237,7 +237,7 @@
     </select>
 
     <select id="findCaseCommentLikeShareByUseCaseId" parameterType="java.lang.String"
-            resultType="com.benz.usecase.domain.CaseCommentLikeShare">
+            resultType="com.sharingplatform.usecase.domain.CaseCommentLikeShare">
         SELECT
         ccls.id AS Id,
         ccls.comment_num AS commentNum,
@@ -251,7 +251,7 @@
         uc.id=#{useCaseId}
     </select>
 
-    <select id="findByUserId" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,
@@ -268,7 +268,7 @@
         ORDER BY uc.create_time DESC
     </select>
 
-    <select id="findByLikeUserId" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByLikeUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,
@@ -286,7 +286,7 @@
         ORDER BY lc.create_time DESC
     </select>
 
-    <select id="findByPhaseStage" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByPhaseStage" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,

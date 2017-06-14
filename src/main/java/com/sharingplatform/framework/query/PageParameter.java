@@ -1,4 +1,4 @@
-package com.benz.framework.query;
+package com.sharingplatform.framework.query;
 
 /**
  * Created by paulliu on 2016/12/26.

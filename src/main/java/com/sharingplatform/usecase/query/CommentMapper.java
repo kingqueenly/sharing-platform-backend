@@ -1,4 +1,4 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
 import org.apache.ibatis.annotations.Mapper;
 

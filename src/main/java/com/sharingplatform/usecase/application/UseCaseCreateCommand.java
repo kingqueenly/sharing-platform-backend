@@ -1,7 +1,7 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
-import com.benz.framework.domain.ServiceCommand;
-import com.benz.usecase.domain.ContributionBU;
+import com.sharingplatform.framework.domain.ServiceCommand;
+import com.sharingplatform.usecase.domain.ContributionBU;
 
 import java.util.List;
 

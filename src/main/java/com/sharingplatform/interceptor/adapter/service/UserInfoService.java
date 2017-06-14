@@ -1,7 +1,7 @@
-package com.benz.interceptor.adapter.service;
+package com.sharingplatform.interceptor.adapter.service;
 
 
-import com.benz.interceptor.domain.UserCreateCommand;
+import com.sharingplatform.interceptor.domain.UserCreateCommand;
 
 /**
  * Created by hongying.fu on 4/12/2017.

@@ -1,6 +1,6 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
-import com.benz.framework.domain.ServiceCommand;
+import com.sharingplatform.framework.domain.ServiceCommand;
 
 /**
  * Created by hongying.fu on 1/13/2017.

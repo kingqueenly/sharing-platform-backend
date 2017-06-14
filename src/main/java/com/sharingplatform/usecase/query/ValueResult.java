@@ -1,4 +1,4 @@
-package com.benz.usecase.query;
+package com.sharingplatform.usecase.query;
 
 /**
  * Created by hongying.fu on 1/11/2017.

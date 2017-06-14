@@ -1,8 +1,8 @@
-package com.benz.user.adapter.listener;
+package com.sharingplatform.user.adapter.listener;
 
-import com.benz.framework.domain.DomainEventListener;
-import com.benz.user.domain.event.LoginedEvent;
-import com.benz.user.domain.score.LoginRule;
+import com.sharingplatform.framework.domain.DomainEventListener;
+import com.sharingplatform.user.domain.event.LoginedEvent;
+import com.sharingplatform.user.domain.score.LoginRule;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

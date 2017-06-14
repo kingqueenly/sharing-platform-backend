@@ -1,11 +1,11 @@
-package com.benz.interceptor;
+package com.sharingplatform.interceptor;
 
-import com.benz.framework.mvc.SpringBootApplicationContext;
-import com.benz.interceptor.adapter.service.UserInfoService;
-import com.benz.interceptor.adapter.service.UserInfoServiceImp;
-import com.benz.interceptor.domain.UserCreateCommand;
-import com.benz.user.domain.BenzUser;
-import com.benz.user.query.UserQuery;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.interceptor.adapter.service.UserInfoService;
+import com.sharingplatform.interceptor.adapter.service.UserInfoServiceImp;
+import com.sharingplatform.interceptor.domain.UserCreateCommand;
+import com.sharingplatform.user.domain.BenzUser;
+import com.sharingplatform.user.query.UserQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

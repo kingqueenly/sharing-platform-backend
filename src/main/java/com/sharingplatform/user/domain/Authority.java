@@ -1,6 +1,6 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
-import com.benz.framework.AssertionConcern;
+import com.sharingplatform.framework.AssertionConcern;
 
 /**
  * Created by paulliu on 2017/1/19.

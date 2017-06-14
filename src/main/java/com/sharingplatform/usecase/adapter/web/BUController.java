@@ -1,13 +1,13 @@
-package com.benz.usecase.adapter.web;
+package com.sharingplatform.usecase.adapter.web;
 
-import com.benz.framework.domain.QueryParameter;
-import com.benz.framework.query.PagedList;
-import com.benz.usecase.application.BUApplicationService;
-import com.benz.usecase.application.BUCreateCommand;
-import com.benz.usecase.application.BUUpdateCommand;
-import com.benz.usecase.query.BUQuery;
-import com.benz.usecase.query.BUResult;
-import com.benz.usecase.query.ValueResult;
+import com.sharingplatform.framework.domain.QueryParameter;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.usecase.application.BUApplicationService;
+import com.sharingplatform.usecase.application.BUCreateCommand;
+import com.sharingplatform.usecase.application.BUUpdateCommand;
+import com.sharingplatform.usecase.query.BUQuery;
+import com.sharingplatform.usecase.query.BUResult;
+import com.sharingplatform.usecase.query.ValueResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

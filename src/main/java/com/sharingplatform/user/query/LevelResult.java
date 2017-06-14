@@ -1,4 +1,4 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
 /**
  * Created by hongying.fu on 1/20/2017.

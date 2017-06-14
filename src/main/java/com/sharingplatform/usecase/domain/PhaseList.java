@@ -1,4 +1,4 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
 import java.util.List;
 

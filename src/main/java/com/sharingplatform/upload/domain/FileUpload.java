@@ -1,7 +1,7 @@
-package com.benz.upload.domain;
+package com.sharingplatform.upload.domain;
 
-import com.benz.framework.mvc.SpringBootApplicationContext;
-import com.benz.upload.application.FileParameters;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.upload.application.FileParameters;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.web.multipart.MultipartFile;
 

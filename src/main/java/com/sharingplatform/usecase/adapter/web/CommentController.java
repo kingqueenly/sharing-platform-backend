@@ -1,11 +1,11 @@
-package com.benz.usecase.adapter.web;
+package com.sharingplatform.usecase.adapter.web;
 
-import com.benz.framework.query.PagedList;
-import com.benz.usecase.application.CommentApplicationService;
-import com.benz.usecase.application.CommentCommand;
-import com.benz.usecase.query.CommentParameter;
-import com.benz.usecase.query.CommentQuery;
-import com.benz.usecase.query.CommentResult;
+import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.usecase.application.CommentApplicationService;
+import com.sharingplatform.usecase.application.CommentCommand;
+import com.sharingplatform.usecase.query.CommentParameter;
+import com.sharingplatform.usecase.query.CommentQuery;
+import com.sharingplatform.usecase.query.CommentResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

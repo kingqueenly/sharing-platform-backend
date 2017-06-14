@@ -1,4 +1,4 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
 /**
  * Created by paulliu on 2017/1/18.

@@ -12,7 +12,7 @@
     </persistence-unit-metadata>
 
     <!-- UseCase -->
-    <entity class="com.benz.usecase.domain.UseCase">
+    <entity class="com.sharingplatform.usecase.domain.UseCase">
         <attributes>
             <id name="id"></id>
             <embedded name="timeFrame"></embedded>
@@ -38,7 +38,7 @@
             <embedded name="userInfo"></embedded>
         </attributes>
     </entity>
-    <embeddable class="com.benz.usecase.domain.TimeFrame">
+    <embeddable class="com.sharingplatform.usecase.domain.TimeFrame">
         <attributes>
             <basic name="afromValue">
                 <temporal>DATE</temporal>
@@ -48,14 +48,14 @@
             </basic>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.CaseSubject">
+    <embeddable class="com.sharingplatform.usecase.domain.CaseSubject">
         <attributes>
             <basic name="value">
                 <column name="subject"/>
             </basic>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.AttachmentList">
+    <embeddable class="com.sharingplatform.usecase.domain.AttachmentList">
         <attributes>
             <one-to-many name="attachments">
                 <join-column name="use_case_id" nullable="false"/>
@@ -65,7 +65,7 @@
             </one-to-many>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.AnalysisMethodResult">
+    <embeddable class="com.sharingplatform.usecase.domain.AnalysisMethodResult">
         <attributes>
             <one-to-many name="files">
                 <join-column name="use_case_id" nullable="false"/>
@@ -75,7 +75,7 @@
             </one-to-many>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.ValidationMethodResult">
+    <embeddable class="com.sharingplatform.usecase.domain.ValidationMethodResult">
         <attributes>
             <one-to-many name="files">
                 <join-column name="use_case_id" nullable="false"/>
@@ -85,7 +85,7 @@
             </one-to-many>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.ImplMethodResult">
+    <embeddable class="com.sharingplatform.usecase.domain.ImplMethodResult">
         <attributes>
             <one-to-many name="files">
                 <join-column name="use_case_id" nullable="false"/>
@@ -95,7 +95,7 @@
             </one-to-many>
         </attributes>
     </embeddable>
-    <embeddable class="com.benz.usecase.domain.UserInfo">
+    <embeddable class="com.sharingplatform.usecase.domain.UserInfo">
         <attributes>
             <basic name="id">
                 <column name="user_id"/>
@@ -107,53 +107,53 @@
             <transient name="level"/>
         </attributes>
     </embeddable>
-    <entity class="com.benz.usecase.domain.AnalysisMethodResultFile">
+    <entity class="com.sharingplatform.usecase.domain.AnalysisMethodResultFile">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.ValidationMethodResultFile">
+    <entity class="com.sharingplatform.usecase.domain.ValidationMethodResultFile">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.ImplMethodResultFile">
+    <entity class="com.sharingplatform.usecase.domain.ImplMethodResultFile">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.Attachment">
+    <entity class="com.sharingplatform.usecase.domain.Attachment">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.Value">
+    <entity class="com.sharingplatform.usecase.domain.Value">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.DataSource">
+    <entity class="com.sharingplatform.usecase.domain.DataSource">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.DataAnalysisModel">
+    <entity class="com.sharingplatform.usecase.domain.DataAnalysisModel">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.CaseCommentLikeShare">
+    <entity class="com.sharingplatform.usecase.domain.CaseCommentLikeShare">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.user.domain.Level">
+    <entity class="com.sharingplatform.user.domain.Level">
         <table name="levels"/>
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <entity class="com.benz.user.domain.BenzUser">
+    <entity class="com.sharingplatform.user.domain.BenzUser">
         <attributes>
             <id name="id"></id>
             <basic name="level" >
@@ -168,12 +168,12 @@
             </one-to-one>
         </attributes>
     </entity>
-    <entity class="com.benz.user.domain.Role">
+    <entity class="com.sharingplatform.user.domain.Role">
         <attributes>
             <id name="id"></id>
         </attributes>
     </entity>
-    <embeddable class="com.benz.user.domain.Authority">
+    <embeddable class="com.sharingplatform.user.domain.Authority">
         <attributes>
             <basic name="id">
                 <column name="authority"/>
@@ -181,7 +181,7 @@
             <transient name="name"/>
         </attributes>
     </embeddable>
-    <entity class="com.benz.user.domain.UserCommentLikeShare">
+    <entity class="com.sharingplatform.user.domain.UserCommentLikeShare">
         <attributes>
             <id name="id"></id>
             <basic name="perDay">
@@ -189,14 +189,14 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.LikeCase">
+    <entity class="com.sharingplatform.usecase.domain.LikeCase">
         <attributes>
             <id name="id"></id>
             <embedded name="userInfo">
             </embedded>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.Share">
+    <entity class="com.sharingplatform.usecase.domain.Share">
         <table name="shares"/>
         <attributes>
             <id name="id"></id>
@@ -204,7 +204,7 @@
             </embedded>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.Comment">
+    <entity class="com.sharingplatform.usecase.domain.Comment">
         <table name="comments"/>
         <attributes>
             <id name="id"></id>
@@ -215,7 +215,7 @@
             </many-to-one>
         </attributes>
     </entity>
-    <entity class="com.benz.usecase.domain.ContributionBU">
+    <entity class="com.sharingplatform.usecase.domain.ContributionBU">
         <attributes>
             <id name="id"></id>
         </attributes>

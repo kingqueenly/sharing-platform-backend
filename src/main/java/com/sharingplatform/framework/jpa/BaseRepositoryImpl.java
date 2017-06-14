@@ -1,4 +1,4 @@
-package com.benz.framework.jpa;
+package com.sharingplatform.framework.jpa;
 
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;

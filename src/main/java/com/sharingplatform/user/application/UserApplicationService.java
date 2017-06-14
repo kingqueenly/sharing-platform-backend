@@ -1,9 +1,9 @@
-package com.benz.user.application;
+package com.sharingplatform.user.application;
 
-import com.benz.framework.AssertionConcern;
-import com.benz.framework.mvc.SpringBootApplicationContext;
-import com.benz.upload.application.FileParameters;
-import com.benz.user.domain.*;
+import com.sharingplatform.framework.AssertionConcern;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.upload.application.FileParameters;
+import com.sharingplatform.user.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

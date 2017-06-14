@@ -1,10 +1,10 @@
-package com.benz.usecase.adapter.listener;
+package com.sharingplatform.usecase.adapter.listener;
 
-import com.benz.framework.domain.DomainEventListener;
-import com.benz.usecase.domain.CaseCommentLikeShare;
-import com.benz.usecase.domain.DomainRegistry;
-import com.benz.usecase.domain.UseCase;
-import com.benz.usecase.domain.event.UseCaseViewedEvent;
+import com.sharingplatform.framework.domain.DomainEventListener;
+import com.sharingplatform.usecase.domain.CaseCommentLikeShare;
+import com.sharingplatform.usecase.domain.DomainRegistry;
+import com.sharingplatform.usecase.domain.UseCase;
+import com.sharingplatform.usecase.domain.event.UseCaseViewedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

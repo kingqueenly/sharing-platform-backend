@@ -1,9 +1,9 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
-import com.benz.framework.AssertionConcern;
-import com.benz.usecase.domain.*;
-import com.benz.usecase.query.CommentQuery;
-import com.benz.usecase.query.CommentResult;
+import com.sharingplatform.framework.AssertionConcern;
+import com.sharingplatform.usecase.domain.*;
+import com.sharingplatform.usecase.query.CommentQuery;
+import com.sharingplatform.usecase.query.CommentResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

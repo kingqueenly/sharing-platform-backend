@@ -1,4 +1,4 @@
-package com.benz.framework;
+package com.sharingplatform.framework;
 
 /**
  * Created by paulliu on 2016/12/12.

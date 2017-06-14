@@ -1,6 +1,6 @@
-package com.benz.user.query;
+package com.sharingplatform.user.query;
 
-import com.benz.user.domain.BenzUser;
+import com.sharingplatform.user.domain.BenzUser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

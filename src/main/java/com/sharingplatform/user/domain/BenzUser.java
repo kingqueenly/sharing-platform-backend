@@ -1,4 +1,4 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
 public class BenzUser {
     private Long id;

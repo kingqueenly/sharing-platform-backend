@@ -1,9 +1,9 @@
-package com.benz.usecase.domain;
+package com.sharingplatform.usecase.domain;
 
 import javax.persistence.*;
 
-import com.benz.framework.domain.DomainEventPublisher;
-import com.benz.usecase.domain.event.UseCaseCreatedEvent;
+import com.sharingplatform.framework.domain.DomainEventPublisher;
+import com.sharingplatform.usecase.domain.event.UseCaseCreatedEvent;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.Date;

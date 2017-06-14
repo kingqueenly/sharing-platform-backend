@@ -1,8 +1,8 @@
-package com.benz.user.adapter.listener;
+package com.sharingplatform.user.adapter.listener;
 
-import com.benz.framework.domain.DomainEventListener;
-import com.benz.usecase.domain.event.CommentCreatedEvent;
-import com.benz.user.domain.score.CommentRule;
+import com.sharingplatform.framework.domain.DomainEventListener;
+import com.sharingplatform.usecase.domain.event.CommentCreatedEvent;
+import com.sharingplatform.user.domain.score.CommentRule;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

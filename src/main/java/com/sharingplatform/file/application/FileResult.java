@@ -1,4 +1,4 @@
-package com.benz.file.application;
+package com.sharingplatform.file.application;
 
 /**
  * Created by hongying.fu on 12/21/2016.

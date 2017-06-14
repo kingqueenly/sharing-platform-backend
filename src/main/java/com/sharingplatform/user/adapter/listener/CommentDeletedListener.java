@@ -1,8 +1,8 @@
-package com.benz.user.adapter.listener;
+package com.sharingplatform.user.adapter.listener;
 
-import com.benz.framework.domain.DomainEventListener;
-import com.benz.usecase.domain.event.CommentDeletedEvent;
-import com.benz.user.domain.score.DeleteCommentRule;
+import com.sharingplatform.framework.domain.DomainEventListener;
+import com.sharingplatform.usecase.domain.event.CommentDeletedEvent;
+import com.sharingplatform.user.domain.score.DeleteCommentRule;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

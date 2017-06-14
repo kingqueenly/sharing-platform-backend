@@ -1,6 +1,6 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
-import com.benz.framework.jpa.BaseRepository;
+import com.sharingplatform.framework.jpa.BaseRepository;
 
 /**
  * Created by Administrator on 5/2/2017.

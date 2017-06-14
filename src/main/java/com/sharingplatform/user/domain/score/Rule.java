@@ -1,9 +1,9 @@
-package com.benz.user.domain.score;
+package com.sharingplatform.user.domain.score;
 
-import com.benz.user.domain.BenzUser;
-import com.benz.user.domain.DomainRegistry;
-import com.benz.user.domain.Level;
-import com.benz.user.domain.UserCommentLikeShare;
+import com.sharingplatform.user.domain.BenzUser;
+import com.sharingplatform.user.domain.DomainRegistry;
+import com.sharingplatform.user.domain.Level;
+import com.sharingplatform.user.domain.UserCommentLikeShare;
 
 import java.util.List;
 

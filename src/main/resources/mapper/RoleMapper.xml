@@ -1,6 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.benz.user.query.RoleMapper">
+<mapper namespace="com.sharingplatform.user.query.RoleMapper">
 
     <select id="findAll" resultMap="resultRole">
         SELECT
@@ -10,7 +10,7 @@
           role
           order by id ASC
     </select>
-    <resultMap id="resultRole" type="com.benz.user.query.RoleResult">
+    <resultMap id="resultRole" type="com.sharingplatform.user.query.RoleResult">
         <id column="id" property="id"></id>
         <result column="text" property="text"></result>
     </resultMap>

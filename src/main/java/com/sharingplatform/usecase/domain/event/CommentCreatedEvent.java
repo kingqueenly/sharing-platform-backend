@@ -1,4 +1,4 @@
-package com.benz.usecase.domain.event;
+package com.sharingplatform.usecase.domain.event;
 
 /**
  * Created by paulliu on 2017/1/17.

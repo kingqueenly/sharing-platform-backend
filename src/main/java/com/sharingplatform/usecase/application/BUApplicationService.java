@@ -1,8 +1,8 @@
-package com.benz.usecase.application;
+package com.sharingplatform.usecase.application;
 
-import com.benz.framework.AssertionConcern;
-import com.benz.usecase.domain.ContribitionBURepository;
-import com.benz.usecase.domain.ContributionBU;
+import com.sharingplatform.framework.AssertionConcern;
+import com.sharingplatform.usecase.domain.ContribitionBURepository;
+import com.sharingplatform.usecase.domain.ContributionBU;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

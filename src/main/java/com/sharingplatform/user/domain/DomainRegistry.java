@@ -1,7 +1,7 @@
-package com.benz.user.domain;
+package com.sharingplatform.user.domain;
 
-import com.benz.framework.ftp.FTPParameters;
-import com.benz.framework.mvc.SpringBootApplicationContext;
+import com.sharingplatform.framework.ftp.FTPParameters;
+import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
 
 /**
  * Created by hongying.fu on 1/10/2017.

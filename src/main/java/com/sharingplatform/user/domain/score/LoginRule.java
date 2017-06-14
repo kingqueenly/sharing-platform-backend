@@ -1,4 +1,4 @@
-package com.benz.user.domain.score;
+package com.sharingplatform.user.domain.score;
 
 import org.apache.commons.lang3.time.DateUtils;
 
