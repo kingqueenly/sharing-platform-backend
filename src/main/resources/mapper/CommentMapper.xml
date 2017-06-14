@@ -1,0 +1,64 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.usecase.query.CommentMapper">
+    <select id="searchCommentByUseCaseId" parameterType="com.benz.usecase.query.CommentParameter" resultMap="commentResultMap">
+
+	   SELECT
+	      bu.id AS buId,
+          bu.username AS buUsername,
+          bu.img_url AS buUrl,
+          pc.content AS pcContent,
+          pc.id AS pcId,
+          pc.create_time AS pcCreateTime
+         from comments pc
+         LEFT JOIN benz_user bu ON pc.user_id=bu.id
+         WHERE
+         use_case_id=#{useCaseId} AND parent_comment_id is NULL
+         ORDER BY pc.create_time DESC
+    </select>
+    <resultMap id="commentResultMap" type="com.benz.usecase.query.CommentResult">
+        <id column="pcId" property="id"></id>
+        <result column="pcContent" property="content"></result>
+        <result column="pcCreateTime" property="createTime"></result>
+        <result column="buId" property="userId"></result>
+        <result column="buUsername" property="userName"></result>
+        <result column="buUrl" property="userImgUrl"></result>
+        <collection property="children" select="getChildrenByParentId" column="pcId"></collection>
+    </resultMap>
+    <select id="getChildrenByParentId" parameterType="java.lang.String" resultType="com.benz.usecase.query.CommentResult">
+        SELECT
+          childC.id AS id,
+          childC.content AS content,
+          childC.create_time AS createTime,
+          childU.id AS userId,
+          childU.username AS userName,
+          childU.img_url userImgUrl
+        FROM
+          comments childC
+        LEFT JOIN benz_user childU ON childU.id = childC.user_id
+        WHERE childC.parent_comment_id=#{pcId}
+        ORDER BY childC.create_time DESC
+    </select>
+    <resultMap id="userParentResultMap" type="com.benz.usecase.query.UserInfo">
+        <result column="parentUserName" property="name"></result>
+        <result column="parentImgUrl" property="imgUrl"></result>
+    </resultMap>
+    <resultMap id="userChildResultMap" type="com.benz.usecase.query.UserInfo">
+        <result column="childUserName" property="name"></result>
+        <result column="childImgUrl" property="imgUrl"></result>
+    </resultMap>
+
+    <select id="findById" parameterType="java.lang.String" resultMap="commentResultMap">
+       SELECT
+       c.id AS parentId,
+       c.content AS parentContent,
+       c.create_time AS parentCreateTime,
+       bu.username AS parentUserName,
+       bu.img_url AS parentImgUrl
+       FROM
+       comments c
+       LEFT JOIN benz_user bu ON c.user_id = bu.id
+       WHERE
+       id=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,29 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.usecase.query.StatisticsMapper">
+
+    <select id="total" resultType="com.benz.usecase.query.TotalResult">
+        SELECT
+            totalcases,
+            totalcomments,
+            totallikes,
+            totalviews
+        FROM
+          case_statistics
+    </select>
+
+    <select id="totalByValue" resultType="com.benz.usecase.query.TotalByValueResult">
+        SELECT
+        create_day as createDay,
+        value as value,
+        amount as amount
+        FROM
+        case_value_statistics
+        order by create_day,value
+    </select>
+
+    <select id="last7days" resultType="String">
+        select distinct(create_day) from case_value_statistics order by create_day
+    </select>
+
+</mapper>

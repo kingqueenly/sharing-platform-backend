@@ -1,0 +1,320 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.usecase.query.UseCaseMapper">
+
+    <resultMap id="useCaseResultMap" type="com.benz.usecase.query.UseCaseResult">
+        <id column="id" property="id"/>
+        <result column="subject" property="subject"/>
+        <result column="scenario" property="scenario"/>
+        <result column="data_type_description" property="dataTypeDescription"/>
+        <result column="analysis_method_result_text" property="analysisMethodResultText"/>
+        <result column="validation_method_result_text" property="validationMethodResultText"/>
+        <result column="impl_method_result_text" property="implMethodResultText"/>
+        <result column="stage" property="stage"/>
+        <result column="afrom_value" property="fromDate"/>
+        <result column="ato_value" property="toDate"/>
+        <result column="need_help" property="needHelp"/>
+        <result column="create_time" property="createTime"/>
+        <result column="reference_case" property="referenceCase"></result>
+        <result column="phase" property="phase"></result>
+        <result column="buId" property="userId"></result>
+        <result column="buUserName" property="userName"></result>
+        <result column="buImgUrl" property="userImgUrl"></result>
+        <result column="buEmail" property="email"></result>
+        <result column="buDepartment" property="userDepartment"></result>
+        <result column="buScore" property="userScore"></result>
+        <result column="buLevel" property="userLevel"></result>
+        <result column="likeNum" property="likeNum"></result>
+        <result column="commentNum" property="commentNum"></result>
+        <result column="shareNum" property="shareNum"></result>
+        <result column="viewNum" property="viewNum"></result>
+        <collection property="analysisMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+            <result column="aurl" property="url"/>
+            <result column="afileName" property="fileName"/>
+        </collection>
+        <collection property="contributionBU" ofType="com.benz.usecase.query.BUResult">
+            <result column="cbuId" property="id"/>
+            <result column="cbuText" property="text"/>
+            <result column="cbuOrg" property="org"/>
+            <result column="cbuDept" property="dept"/>
+        </collection>
+        <collection property="validationMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+            <result column="vurl" property="url"/>
+            <result column="vfileName" property="fileName"/>
+        </collection>
+        <collection property="implMethodResultFiles" ofType="com.benz.usecase.query.FileResult">
+            <result column="imurl" property="url"/>
+            <result column="imfileName" property="fileName"/>
+        </collection>
+        <collection property="attachments" ofType="com.benz.usecase.query.FileResult">
+            <result column="atturl" property="url"/>
+            <result column="attfileName" property="fileName"/>
+        </collection>
+        <collection property="values" ofType="com.benz.usecase.query.ValueResult">
+            <result column="vid" property="id"/>
+            <result column="vtext" property="text"/>
+        </collection>
+        <collection property="dataSource" ofType="com.benz.usecase.query.ValueResult">
+            <result column="dsid" property="id"/>
+            <result column="dstext" property="text"/>
+        </collection>
+        <collection property="dataAnalysisModel" ofType="com.benz.usecase.query.ValueResult">
+            <result column="damid" property="id"/>
+            <result column="damtext" property="text"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="useCaseUserInfoResultMap" type="com.benz.usecase.query.UserInfo">
+        <result column="buUserName" property="name"></result>
+        <result column="buImgUrl" property="imgUrl"></result>
+        <result column="buDepartment" property="department"></result>
+        <result column="buScore" property="score"></result>
+        <result column="buLevel" property="level"></result>
+    </resultMap>
+
+    <resultMap id="caseCommentLikeShareResultMap" type="com.benz.usecase.query.CaseCommentLikeShareResult">
+        <result column="likeNum" property="likeNum"></result>
+        <result column="commentNum" property="commentNum"></result>
+        <result column="shareNum" property="shareNum"></result>
+        <result column="viewNum" property="viewNum"></result>
+    </resultMap>
+
+    <resultMap id="findAllUseCaseResultMap" type="com.benz.usecase.query.UseCaseResult">
+        <id column="id" property="id"/>
+        <result column="subject" property="subject"/>
+        <result column="scenario" property="scenario"/>
+        <result column="stage" property="stage"/>
+        <result column="phase" property="phase"/>
+        <result column="analysis_method_result_text" property="analysisMethodResultText"/>
+        <result column="create_time" property="createTime"/>
+        <result column="buId" property="userId"></result>
+        <result column="buUserName" property="userName"></result>
+        <result column="buImgUrl" property="userImgUrl"></result>
+        <result column="buDepartment" property="userDepartment"></result>
+        <result column="buScore" property="userScore"></result>
+        <result column="buLevel" property="userLevel"></result>
+        <result column="likeNum" property="likeNum"></result>
+        <result column="commentNum" property="commentNum"></result>
+        <result column="shareNum" property="shareNum"></result>
+        <result column="viewNum" property="viewNum"></result>
+        <collection property="analysisMethodResultFiles" select="getAnalysisFilesByUseCaseId" column="id"></collection>
+        <collection property="values" ofType="com.benz.usecase.query.ValueResult">
+            <result column="vid" property="id"/>
+            <result column="vtext" property="text"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAnalysisFilesByUseCaseId" parameterType="java.lang.String" resultType="com.benz.usecase.query.FileResult">
+        SELECT
+        url,
+        file_name
+        from analysis_method_result_file
+        WHERE use_case_id=#{id}
+    </select>
+
+    <select id="findAll" resultMap="findAllUseCaseResultMap" parameterType="com.benz.usecase.query.UseCaseParameter">
+        select DISTINCT
+        uc.id AS id,
+        subject,
+        scenario,
+        stage,
+        phase,
+        analysis_method_result_text,
+        uc.create_time AS create_time,
+        v.id AS vid,
+        v.text AS vtext,
+        ccls.like_num AS likeNum,
+        ccls.comment_num AS commentNum,
+        ccls.share_num AS shareNum,
+        ccls.view_num AS viewNum,
+        bu.username AS buUserName,
+        bu.id as buId,
+        bu.img_url AS buImgUrl,
+        bu.department AS buDepartment,
+        bu.score AS buScore,
+        bu.levels AS buLevel
+        FROM
+        use_case uc
+        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
+        LEFT JOIN value v ON ucv.value_id = v.id
+        LEFT JOIN use_case_contributionbu ucbu ON uc.id=ucbu.use_case_id
+        LEFT JOIN contributionbu cbu ON cbu.id=ucbu.contributionbu_id
+        LEFT JOIN case_comment_like_share ccls ON uc.case_comment_like_share_id = ccls.id
+        LEFT JOIN benz_user bu ON bu.id = uc.user_id
+        <where>
+          <if test="subject != null">
+              <if test="subject != ''">
+                  <bind name="subjectPattern" value="'%' + subject + '%'"/>
+                  and upper(subject) like #{subjectPattern}
+              </if>
+          </if>
+          <if test="valueType != null">
+              <if test="valueType != ''">
+                  <bind name="valueTypePattern" value="'%' + valueType + '%'"/>
+                  and v.text like #{valueTypePattern}
+              </if>
+          </if>
+          <if test="objective != null and objective != ''">
+              <bind name="objectivePattern" value="'%' + objective + '%'"/>
+              and v.text like #{objectivePattern}
+          </if>
+          <if test="company != null and company != ''">
+              and cbu.org=#{company}
+          </if>
+            <if test="dept != null and dept != ''">
+                and cbu.dept=#{dept}
+            </if>
+            <if test="stage != null and stage != ''">
+                and uc.stage=#{stage}
+            </if>
+        </where>
+        ORDER BY uc.create_time DESC
+    </select>
+
+    <select id="findById" resultMap="useCaseResultMap" parameterType="java.lang.Long">
+        select
+        uc.id AS id,
+        subject,
+        scenario,
+        data_type_description,
+        analysis_method_result_text,
+        validation_method_result_text,
+        impl_method_result_text,
+        stage,
+        afrom_value,
+        ato_value,
+        need_help,
+        create_time,
+        reference_case,
+        phase,
+        af.url as aurl,
+        af.file_name as afileName,
+        vf.url AS vurl,
+        vf.file_name AS vfileName,
+        imf.url AS imurl,
+        imf.file_name AS imfileName,
+        att.url AS atturl,
+        att.file_name AS attfileName,
+        ccls.like_num AS likeNum,
+        ccls.comment_num AS commentNum,
+        ccls.share_num AS shareNum,
+        ccls.view_num AS viewNum,
+        v.id AS vid,
+        v.text AS vtext,
+        ds.id AS dsid,
+        ds.text AS dstext,
+        dam.id AS damid,
+        dam.text AS damtext,
+        bu.id AS buId,
+        bu.username AS buUserName,
+        bu.img_url AS buImgUrl,
+        bu.department AS buDepartment,
+        bu.score AS buScore,
+        bu.levels AS buLevel,
+        bu.email AS buEmail,
+        cbu.id AS cbuId,
+        cbu.text AS cbuText,
+        cbu.org AS cbuOrg,
+        cbu.dept AS cbuDept
+        from
+        use_case uc
+        LEFT JOIN analysis_method_result_file af ON uc.id=af.use_case_id
+        LEFT JOIN validation_method_result_file vf ON uc.id = vf.use_case_id
+        LEFT JOIN impl_method_result_file imf ON uc.id = imf.use_case_id
+        LEFT JOIN attachment att ON uc.id = att.use_case_id
+        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
+        LEFT JOIN value v ON ucv.value_id = v.id
+        LEFT JOIN use_case_data_source ucds on ucds.use_case_id=uc.id
+        LEFT JOIN data_source ds on ucds.data_source_id=ds.id
+        LEFT JOIN use_case_contributionbu uccb on uccb.use_case_id=uc.id
+        LEFT JOIN contributionbu cbu on cbu.id=uccb.contributionbu_id
+        LEFT JOIN use_case_data_analysis_model ucdam on ucdam.use_case_id=uc.id
+        LEFT JOIN data_analysis_model dam ON ucdam.data_analysis_model_id=dam.id
+        LEFT JOIN case_comment_like_share ccls ON uc.case_comment_like_share_id = ccls.id
+        LEFT JOIN benz_user bu ON bu.id = uc.user_id
+        where
+        uc.id = #{id}
+    </select>
+
+    <select id="findCaseCommentLikeShareByUseCaseId" parameterType="java.lang.String"
+            resultType="com.benz.usecase.domain.CaseCommentLikeShare">
+        SELECT
+        ccls.id AS Id,
+        ccls.comment_num AS commentNum,
+        ccls.like_num AS likeNum,
+        ccls.share_num AS shareNum,
+        ccls.view_num AS viewNum
+        FROM
+        case_comment_like_share ccls
+        LEFT JOIN  use_case uc ON ccls.id = uc.case_comment_like_share_id
+        WHERE
+        uc.id=#{useCaseId}
+    </select>
+
+    <select id="findByUserId" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+        SELECT
+        uc.id AS id,
+        subject,
+        scenario,
+        create_time,
+        v.id AS vid,
+        v.text AS vtext
+        FROM
+        use_case uc
+        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
+        LEFT JOIN value v ON ucv.value_id = v.id
+        WHERE
+        user_id=#{createUserId}
+        ORDER BY uc.create_time DESC
+    </select>
+
+    <select id="findByLikeUserId" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+        SELECT
+        uc.id AS id,
+        subject,
+        scenario,
+        uc.create_time,
+        v.id AS vid,
+        v.text AS vtext
+        FROM
+        use_case uc
+        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
+        LEFT JOIN value v ON ucv.value_id = v.id
+        INNER JOIN like_case lc ON lc.use_case_id = uc.id
+        WHERE
+        lc.user_id=#{likeUserId}
+        ORDER BY lc.create_time DESC
+    </select>
+
+    <select id="findByPhaseStage" parameterType="com.benz.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+        SELECT
+        uc.id AS id,
+        subject,
+        scenario,
+        create_time,
+        stage,
+        phase,
+        v.id AS vid,
+        v.text AS vtext
+        FROM
+        use_case uc
+        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
+        LEFT JOIN value v ON ucv.value_id = v.id
+
+        <where>
+            <if test="phase != null ">
+                <if test="phase != '' ">
+                    and upper(uc.phase)=#{phase}
+                </if>
+            </if>
+            <if test="stage != null">
+                <if test="stage != ''">
+                    and upper(uc.stage)=#{stage}
+                </if>
+            </if>
+
+        </where>
+
+        ORDER BY uc.create_time DESC
+    </select>
+</mapper>

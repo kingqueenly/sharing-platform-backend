@@ -1,0 +1,153 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.user.query.UserMapper">
+
+    <resultMap id="userResultMap" type="com.benz.user.query.UserProfile">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="userId"></result>
+        <result column="appellation" property="appellation"></result>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="organization" property="organization"></result>
+        <result column="department" property="department"></result>
+        <result column="img_url" property="imgUrl"></result>
+        <result column="work_area" property="workArea"></result>
+        <result column="professional" property="professional"></result>
+        <result column="email" property="email"></result>
+        <result column="phone" property="phone"></result>
+        <result column="mobile" property="mobile"></result>
+        <result column="score" property="score"></result>
+        <result column="levels" property="level"></result>
+        <result column="role" property="role"></result>
+        <result column="authority" property="authority"></result>
+        <result column="ISDCREMEMBER" property="isDCRemember"></result>
+        <result column="deleted" property="deleted"></result>
+    </resultMap>
+
+    <select id="findById" resultMap="userResultMap">
+        SELECT
+        u.id,
+        u.user_id,
+        u.appellation,
+        u.username,
+        u.organization,
+        u.department,
+        u.img_Url,
+        u.work_area,
+        u.professional,
+        u.email,
+        u.phone,
+        u.mobile,
+        u.score,
+        u.levels,
+        u.role,
+        u.authority,
+        u.ISDCREMEMBER,
+        u.deleted
+        FROM
+        benz_user u
+        WHERE
+        (u.deleted is null or u.deleted = 0) and u.id=#{id}
+    </select>
+
+    <select id="auth" parameterType="java.lang.String" resultType="com.benz.user.query.UserIdentity">
+        SELECT
+          id,
+          username,
+          role
+        FROM
+          benz_user
+        WHERE
+         (deleted is null or deleted = 0) and username=#{usernmae}
+    </select>
+
+    <select id="findAll" parameterType="com.benz.user.query.UserParameter" resultMap="userResultMap">
+        SELECT
+            u.id,
+            u.user_id,
+            u.appellation,
+            u.username,
+            u.organization,
+            u.department,
+            u.img_Url,
+            u.work_area,
+            u.professional,
+            u.email,
+            u.phone,
+            u.mobile,
+            u.score,
+            u.levels ,
+            u.role,
+            u.authority,
+            u.ISDCREMEMBER,
+            u.deleted
+        FROM benz_user u
+        <where>
+            (u.deleted is null or u.deleted = 0)
+            <if test="username !=null">
+                <if test="username !=''">
+                    <bind name="usernamePattern" value="'%' + username + '%'"/>
+                    and upper(u.username) like #{usernamePattern}
+                </if>
+            </if>
+            <if test="department!=null">
+                <if test="department!=''">
+                    <bind name="departmentPattern" value="'%' + department + '%'"/>
+                    and upper(u.department) like #{departmentPattern}
+                </if>
+            </if>
+            <if test="professional!=null">
+                <if test="professional!=''">
+                    <bind name="professionalPattern" value="'%' + professional + '%'"/>
+                    and upper(u.professional) like #{professionalPattern}
+                </if>
+            </if>
+        </where>
+    </select>
+    <select id="getLevelRule" resultMap="levelResultMap">
+        SELECT
+        id,
+        name,
+        min_score,
+        max_score
+        FROM
+        LEVELS
+        ORDER BY min_score DESC
+    </select>
+    <resultMap id="levelResultMap" type="com.benz.user.query.LevelResult">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="min_score" property="minScore"></result>
+        <result column="max_score" property="maxScore"></result>
+    </resultMap>
+
+    <select id="findByUserId" parameterType="java.lang.String" resultType="com.benz.user.domain.BenzUser">
+        SELECT * FROM benz_user WHERE (deleted is null or deleted = 0) and upper(user_id)=#{id}
+    </select>
+    <select id="getDataCommunity" parameterType="com.benz.user.query.UserParameter" resultMap="userResultMap">
+        SELECT
+            u.id,
+            u.user_id,
+            u.appellation,
+            u.username,
+            u.organization,
+            u.department,
+            u.img_Url,
+            u.work_area,
+            u.professional,
+            u.email,
+            u.phone,
+            u.mobile,
+            u.score,
+            u.levels ,
+            u.role,
+            u.authority,
+            u.ISDCREMEMBER,
+            u.deleted
+        FROM benz_user u
+        WHERE u.ISDCREMEMBER=1 and (u.deleted is null or u.deleted = 0)
+        <if test="role!=null and role!=''">
+            AND role=#{role}
+        </if>
+    </select>
+</mapper>

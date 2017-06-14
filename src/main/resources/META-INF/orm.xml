@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+        http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
+
+    <!-- Set the default to FIELD-access -->
+    <persistence-unit-metadata>
+        <persistence-unit-defaults>
+            <access>FIELD</access>
+        </persistence-unit-defaults>
+    </persistence-unit-metadata>
+
+    <!-- UseCase -->
+    <entity class="com.benz.usecase.domain.UseCase">
+        <attributes>
+            <id name="id"></id>
+            <embedded name="timeFrame"></embedded>
+            <embedded name="subject"></embedded>
+            <embedded name="analysisMethodResult">
+                <one-to-many></one-to-many>
+            </embedded>
+            <embedded name="validationMethodResult">
+                <one-to-many></one-to-many>
+            </embedded>
+            <embedded name="implMethodResult">
+                <one-to-many></one-to-many>
+            </embedded>
+            <embedded name="attachments">
+                <one-to-many></one-to-many>
+            </embedded>
+            <one-to-one name="caseCommentLikeShare">
+                <join-column name="case_comment_like_share_id"></join-column>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-one>
+            <embedded name="userInfo"></embedded>
+        </attributes>
+    </entity>
+    <embeddable class="com.benz.usecase.domain.TimeFrame">
+        <attributes>
+            <basic name="afromValue">
+                <temporal>DATE</temporal>
+            </basic>
+            <basic name="atoValue">
+                <temporal>DATE</temporal>
+            </basic>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.CaseSubject">
+        <attributes>
+            <basic name="value">
+                <column name="subject"/>
+            </basic>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.AttachmentList">
+        <attributes>
+            <one-to-many name="attachments">
+                <join-column name="use_case_id" nullable="false"/>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.AnalysisMethodResult">
+        <attributes>
+            <one-to-many name="files">
+                <join-column name="use_case_id" nullable="false"/>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.ValidationMethodResult">
+        <attributes>
+            <one-to-many name="files">
+                <join-column name="use_case_id" nullable="false"/>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.ImplMethodResult">
+        <attributes>
+            <one-to-many name="files">
+                <join-column name="use_case_id" nullable="false"/>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </embeddable>
+    <embeddable class="com.benz.usecase.domain.UserInfo">
+        <attributes>
+            <basic name="id">
+                <column name="user_id"/>
+            </basic>
+            <transient name="username"/>
+            <transient name="imgUrl"/>
+            <transient name="department"/>
+            <transient name="score"/>
+            <transient name="level"/>
+        </attributes>
+    </embeddable>
+    <entity class="com.benz.usecase.domain.AnalysisMethodResultFile">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.ValidationMethodResultFile">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.ImplMethodResultFile">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.Attachment">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.Value">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.DataSource">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.DataAnalysisModel">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.CaseCommentLikeShare">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.user.domain.Level">
+        <table name="levels"/>
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.benz.user.domain.BenzUser">
+        <attributes>
+            <id name="id"></id>
+            <basic name="level" >
+                <column name="levels"/>
+            </basic>
+            <embedded name="authority"></embedded>
+            <one-to-one name="userCommentLikeShare" fetch="LAZY">
+                <join-column name="user_comment_like_share_id"></join-column>
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-one>
+        </attributes>
+    </entity>
+    <entity class="com.benz.user.domain.Role">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <embeddable class="com.benz.user.domain.Authority">
+        <attributes>
+            <basic name="id">
+                <column name="authority"/>
+            </basic>
+            <transient name="name"/>
+        </attributes>
+    </embeddable>
+    <entity class="com.benz.user.domain.UserCommentLikeShare">
+        <attributes>
+            <id name="id"></id>
+            <basic name="perDay">
+                <temporal>DATE</temporal>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.LikeCase">
+        <attributes>
+            <id name="id"></id>
+            <embedded name="userInfo">
+            </embedded>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.Share">
+        <table name="shares"/>
+        <attributes>
+            <id name="id"></id>
+            <embedded name="userInfo">
+            </embedded>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.Comment">
+        <table name="comments"/>
+        <attributes>
+            <id name="id"></id>
+            <embedded name="fromUserInfo">
+            </embedded>
+            <many-to-one name="comment">
+                <join-column name="parent_comment_id"></join-column>
+            </many-to-one>
+        </attributes>
+    </entity>
+    <entity class="com.benz.usecase.domain.ContributionBU">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+</entity-mappings>

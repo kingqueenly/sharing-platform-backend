@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.usecase.query.DataAnalysisModelMapper">
+
+    <select id="findAll" resultType="com.benz.usecase.query.ValueResult">
+        SELECT
+          id,
+          text
+        FROM
+          data_analysis_model
+    </select>
+
+</mapper>

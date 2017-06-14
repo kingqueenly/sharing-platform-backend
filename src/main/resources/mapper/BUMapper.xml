@@ -1,0 +1,43 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.benz.usecase.query.BUMapper">
+
+    <select id="findAll" resultMap="resultBu">
+        SELECT
+            id,
+            text,
+            org,
+            dept
+        FROM
+          contributionbu
+    </select>
+
+    <select id="findAllCompanies" resultMap="resultValue">
+        SELECT
+            MAX(id) AS id,
+            org AS text
+        FROM contributionbu
+        GROUP BY org
+        ORDER BY id
+    </select>
+
+    <select id="findDeptByCompany" resultMap="resultValue" parameterType="java.lang.String">
+        SELECT
+            id,
+            dept AS text
+        FROM contributionbu
+        WHERE org=#{company}
+        ORDER BY id
+    </select>
+
+    <resultMap id="resultBu" type="com.benz.usecase.query.BUResult">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+        <result column="org" property="org"></result>
+        <result column="dept" property="dept"></result>
+    </resultMap>
+    <resultMap id="resultValue" type="com.benz.usecase.query.ValueResult">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+    </resultMap>
+</mapper>
