@@ -14,8 +14,10 @@ public class UseCaseUpdateCommand {
     private List<ValueCommand> values;
     private String scenario;
     private List<ValueCommand>  dataSource;
+    private String dataSourceOther;
     private String dataTypeDescription;
     private List<ValueCommand>  dataAnalysisModel;
+    private String dataAnalysisModelOther;
     private String analysisMethodResultText;
     private List<FileCommand> analysisMethodResultFiles;
     private String validationMethodResultText;
@@ -33,14 +35,16 @@ public class UseCaseUpdateCommand {
     public UseCaseUpdateCommand() {
     }
 
-    public UseCaseUpdateCommand(Long id, String subject, List<ValueCommand> values, String scenario, List<ValueCommand> dataSource, String dataTypeDescription, List<ValueCommand> dataAnalysisModel, String analysisMethodResultText, List<FileCommand> analysisMethodResultFiles, String validationMethodResultText, List<FileCommand> validationMethodResultFiles, String implMethodResultText, List<FileCommand> implMethodResultFiles, List<ContributionBU> contributionBU, String stage, String fromDate, String toDate, String needHelp, List<AttachmentCommand> attachments, String phase) {
+    public UseCaseUpdateCommand(Long id, String subject, List<ValueCommand> values, String scenario, List<ValueCommand> dataSource, String dataSourceOther, String dataTypeDescription, List<ValueCommand> dataAnalysisModel,String dataAnalysisModelOther, String analysisMethodResultText, List<FileCommand> analysisMethodResultFiles, String validationMethodResultText, List<FileCommand> validationMethodResultFiles, String implMethodResultText, List<FileCommand> implMethodResultFiles, List<ContributionBU> contributionBU, String stage, String fromDate, String toDate, String needHelp, List<AttachmentCommand> attachments, String phase) {
         this.id = id;
         this.subject = subject;
         this.values = values;
         this.scenario = scenario;
         this.dataSource = dataSource;
+        this.dataSourceOther = dataSourceOther;
         this.dataTypeDescription = dataTypeDescription;
         this.dataAnalysisModel = dataAnalysisModel;
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
         this.analysisMethodResultText = analysisMethodResultText;
         this.analysisMethodResultFiles = analysisMethodResultFiles;
         this.validationMethodResultText = validationMethodResultText;
@@ -184,6 +188,14 @@ public class UseCaseUpdateCommand {
         this.dataAnalysisModel = dataAnalysisModel;
     }
 
+    public String getDataAnalysisModelOther(){
+        return dataAnalysisModelOther;
+    }
+
+    public void setDataAnalysisModelOther(String dataAnalysisModelOther){
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
+    }
+
     public String getImplMethodResultText() {
         return implMethodResultText;
     }
@@ -206,6 +218,14 @@ public class UseCaseUpdateCommand {
 
     public void setNeedHelp(String needHelp) {
         this.needHelp = needHelp;
+    }
+
+    public String getDataSourceOther() {
+        return dataSourceOther;
+    }
+
+    public void setDataSourceOther(String dataSourceOther) {
+        this.dataSourceOther = dataSourceOther;
     }
 
     public List<AttachmentCommand> getAttachments() {

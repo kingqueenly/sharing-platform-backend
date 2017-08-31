@@ -1,8 +1,6 @@
 package com.sharingplatform.usecase.domain;
 
 import com.sharingplatform.framework.mvc.SpringBootApplicationContext;
-import com.sharingplatform.user.domain.UserRepository;
-import org.springframework.context.ApplicationEventPublisher;
 
 /**
  * Created by paulliu on 2016/12/12.

@@ -1,8 +1,5 @@
 package com.sharingplatform.usecase.query;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by hongying.fu on 12/15/2016.
  */

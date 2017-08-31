@@ -1,0 +1,43 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.datagovernance.query.SystemNameMapper">
+
+    <resultMap id="systemNameResult" type="com.sharingplatform.datagovernance.query.SystemNameResult">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+    </resultMap>
+
+    <resultMap id="systemNameConfigResult" type="com.sharingplatform.datagovernance.query.SystemNameConfigResult">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+        <result column="entity_name" property="entityName"></result>
+        <result column="function_name" property="functionName"></result>
+        <result column="data_owner" property="dataOwner"></result>
+        <result column="it_owner" property="itOwner"></result>
+        <result column="data_owner_id" property="dataOwnerId"></result>
+        <result column="it_owner_id" property="itOwnerId"></result>
+    </resultMap>
+
+    <select id="findAllSystemName" resultMap="systemNameResult">
+        SELECT id, text FROM system_name
+    </select>
+
+    <select id="findAllSystemNameConfig" resultMap="systemNameConfigResult">
+        SELECT id, text, entity_name, function_name, data_owner, it_owner, data_owner_id, it_owner_id FROM system_name_config
+    </select>
+
+    <select id="findDataOwnerIds" resultType="String">
+        SELECT data_owner_id FROM system_name_config WHERE text IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="findItOwnerIds" resultType="String">
+        SELECT it_owner_id FROM system_name_config WHERE text IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>

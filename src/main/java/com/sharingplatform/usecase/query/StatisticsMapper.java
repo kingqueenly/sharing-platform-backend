@@ -1,6 +1,5 @@
 package com.sharingplatform.usecase.query;
 
-import com.sharingplatform.framework.domain.QueryParameter;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

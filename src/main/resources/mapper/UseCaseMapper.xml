@@ -7,6 +7,8 @@
         <result column="subject" property="subject"/>
         <result column="scenario" property="scenario"/>
         <result column="data_type_description" property="dataTypeDescription"/>
+        <result column="data_analysis_model_other" property="dataAnalysisModelOther"/>
+        <result column="data_source_other" property="dataSourceOther"/>
         <result column="analysis_method_result_text" property="analysisMethodResultText"/>
         <result column="validation_method_result_text" property="validationMethodResultText"/>
         <result column="impl_method_result_text" property="implMethodResultText"/>
@@ -83,28 +85,12 @@
         <id column="id" property="id"/>
         <result column="subject" property="subject"/>
         <result column="scenario" property="scenario"/>
-        <result column="stage" property="stage"/>
-        <result column="phase" property="phase"/>
-        <result column="analysis_method_result_text" property="analysisMethodResultText"/>
         <result column="create_time" property="createTime"/>
-        <result column="buId" property="userId"></result>
-        <result column="buUserName" property="userName"></result>
-        <result column="buImgUrl" property="userImgUrl"></result>
-        <result column="buDepartment" property="userDepartment"></result>
-        <result column="buScore" property="userScore"></result>
-        <result column="buLevel" property="userLevel"></result>
-        <result column="likeNum" property="likeNum"></result>
-        <result column="commentNum" property="commentNum"></result>
-        <result column="shareNum" property="shareNum"></result>
-        <result column="viewNum" property="viewNum"></result>
-        <collection property="analysisMethodResultFiles" select="getAnalysisFilesByUseCaseId" column="id"></collection>
-        <collection property="values" ofType="com.sharingplatform.usecase.query.ValueResult">
-            <result column="vid" property="id"/>
-            <result column="vtext" property="text"/>
-        </collection>
+        <result column="vtext" property="vtext"/>
     </resultMap>
 
-    <select id="getAnalysisFilesByUseCaseId" parameterType="java.lang.String" resultType="com.sharingplatform.usecase.query.FileResult">
+    <select id="getAnalysisFilesByUseCaseId" parameterType="java.lang.String"
+            resultType="com.sharingplatform.usecase.query.FileResult">
         SELECT
         url,
         file_name
@@ -112,55 +98,34 @@
         WHERE use_case_id=#{id}
     </select>
 
-    <select id="findAll" resultMap="findAllUseCaseResultMap" parameterType="com.sharingplatform.usecase.query.UseCaseParameter">
-        select DISTINCT
+    <select id="findAll" resultMap="findAllUseCaseResultMap"
+            parameterType="com.sharingplatform.usecase.query.UseCaseParameter">
+        SELECT DISTINCT
         uc.id AS id,
-        subject,
-        scenario,
-        stage,
-        phase,
-        analysis_method_result_text,
+        uc.subject,
+        uc.scenario,
         uc.create_time AS create_time,
-        v.id AS vid,
-        v.text AS vtext,
-        ccls.like_num AS likeNum,
-        ccls.comment_num AS commentNum,
-        ccls.share_num AS shareNum,
-        ccls.view_num AS viewNum,
-        bu.username AS buUserName,
-        bu.id as buId,
-        bu.img_url AS buImgUrl,
-        bu.department AS buDepartment,
-        bu.score AS buScore,
-        bu.levels AS buLevel
-        FROM
-        use_case uc
-        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
-        LEFT JOIN value v ON ucv.value_id = v.id
-        LEFT JOIN use_case_contributionbu ucbu ON uc.id=ucbu.use_case_id
-        LEFT JOIN contributionbu cbu ON cbu.id=ucbu.contributionbu_id
-        LEFT JOIN case_comment_like_share ccls ON uc.case_comment_like_share_id = ccls.id
-        LEFT JOIN benz_user bu ON bu.id = uc.user_id
+        ucvv.value AS vtext
+        FROM use_case uc
+        LEFT JOIN use_case_value_view ucvv ON ucvv.id = uc.id
+        LEFT JOIN use_case_contributionbu ucbu ON uc.id = ucbu.use_case_id
+        LEFT JOIN contributionbu cbu ON cbu.id = ucbu.contributionbu_id
         <where>
-          <if test="subject != null">
-              <if test="subject != ''">
-                  <bind name="subjectPattern" value="'%' + subject + '%'"/>
-                  and upper(subject) like #{subjectPattern}
-              </if>
-          </if>
-          <if test="valueType != null">
-              <if test="valueType != ''">
-                  <bind name="valueTypePattern" value="'%' + valueType + '%'"/>
-                  and v.text like #{valueTypePattern}
-              </if>
-          </if>
-          <if test="objective != null and objective != ''">
-              <bind name="objectivePattern" value="'%' + objective + '%'"/>
-              and v.text like #{objectivePattern}
-          </if>
-          <if test="company != null and company != ''">
-              and cbu.org=#{company}
-          </if>
+            <if test="subject != null and subject != ''">
+                <bind name="subjectPattern" value="'%' + subject + '%'"/>
+                and upper(uc.subject) like #{subjectPattern}
+            </if>
+            <if test="valueType != null and valueType != ''">
+                <bind name="valueTypePattern" value="'%' + valueType + '%'"/>
+                and ucvv.value like #{valueTypePattern}
+            </if>
+            <if test="objective != null and objective != ''">
+                <bind name="objectivePattern" value="'%' + objective + '%'"/>
+                and ucvv.value like #{objectivePattern}
+            </if>
+            <if test="company != null and company != ''">
+                and cbu.org=#{company}
+            </if>
             <if test="dept != null and dept != ''">
                 and cbu.dept=#{dept}
             </if>
@@ -177,6 +142,8 @@
         subject,
         scenario,
         data_type_description,
+        data_analysis_model_other,
+        data_source_other,
         analysis_method_result_text,
         validation_method_result_text,
         impl_method_result_text,
@@ -251,42 +218,39 @@
         uc.id=#{useCaseId}
     </select>
 
-    <select id="findByUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter"
+            resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,
         scenario,
         create_time,
-        v.id AS vid,
-        v.text AS vtext
-        FROM
-        use_case uc
-        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
-        LEFT JOIN value v ON ucv.value_id = v.id
+        ucvv.value AS vtext
+        FROM use_case uc
+        LEFT JOIN use_case_value_view ucvv ON ucvv.id = uc.id
         WHERE
         user_id=#{createUserId}
         ORDER BY uc.create_time DESC
     </select>
 
-    <select id="findByLikeUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByLikeUserId" parameterType="com.sharingplatform.usecase.query.UseCaseParameter"
+            resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,
         scenario,
         uc.create_time,
-        v.id AS vid,
-        v.text AS vtext
-        FROM
-        use_case uc
-        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
-        LEFT JOIN value v ON ucv.value_id = v.id
+        ucvv.value AS vtext
+        FROM use_case uc
+        LEFT JOIN use_case_value_view ucvv ON ucvv.id = uc.id
         INNER JOIN like_case lc ON lc.use_case_id = uc.id
         WHERE
         lc.user_id=#{likeUserId}
         ORDER BY lc.create_time DESC
     </select>
 
-    <select id="findByPhaseStage" parameterType="com.sharingplatform.usecase.query.UseCaseParameter" resultMap="findAllUseCaseResultMap">
+    <select id="findByPhaseStage" parameterType="com.sharingplatform.usecase.query.UseCaseParameter"
+            resultMap="findAllUseCaseResultMap">
         SELECT
         uc.id AS id,
         subject,
@@ -294,27 +258,17 @@
         create_time,
         stage,
         phase,
-        v.id AS vid,
-        v.text AS vtext
-        FROM
-        use_case uc
-        LEFT JOIN use_case_value ucv ON ucv.use_case_id = uc.id
-        LEFT JOIN value v ON ucv.value_id = v.id
-
+        ucvv.value AS vtext
+        FROM use_case uc
+        LEFT JOIN use_case_value_view ucvv ON ucvv.id = uc.id
         <where>
-            <if test="phase != null ">
-                <if test="phase != '' ">
-                    and upper(uc.phase)=#{phase}
-                </if>
+            <if test="phase != null and phase != ''">
+                and upper(uc.phase)=#{phase}
             </if>
-            <if test="stage != null">
-                <if test="stage != ''">
-                    and upper(uc.stage)=#{stage}
-                </if>
+            <if test="stage != null and stage != ''">
+                and upper(uc.stage)=#{stage}
             </if>
-
         </where>
-
         ORDER BY uc.create_time DESC
     </select>
 </mapper>

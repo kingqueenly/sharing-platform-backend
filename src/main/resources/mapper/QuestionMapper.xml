@@ -1,0 +1,64 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.faq.query.QuestionMapper">
+
+    <resultMap id="questionResultMap" type="com.sharingplatform.faq.query.QuestionResult">
+        <id column="id" property="id"/>
+        <result column="answer" property="answer"/>
+        <result column="create_time" property="createTime"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="question" property="question"/>
+        <result column="reply_time" property="replyTime"/>
+        <result column="replyer_id" property="replyerId"/>
+        <result column="useful" property="useful"/>
+        <result column="creator_name" property="creatorName"/>
+        <result column="replyer_name" property="replyerName"/>
+    </resultMap>
+
+    <select id="listQuestions" resultMap="questionResultMap"
+            parameterType="com.sharingplatform.faq.query.FAQQueryParameter">
+        SELECT
+        q.id,
+        q.answer,
+        q.create_time,
+        q.creator_id,
+        q.question,
+        q.reply_time,
+        q.replyer_id,
+        q.useful,
+        bu1.username creator_name,
+        bu2.username replyer_name
+        FROM question q
+        LEFT JOIN benz_user bu1 ON q.creator_id = bu1.id
+        LEFT JOIN benz_user bu2 ON q.replyer_id = bu2.id
+        <where>
+            <if test="creatorId != null and creatorId != ''">
+                and q.creator_id=#{creatorId}
+            </if>
+            <if test="questionId != null">
+                and q.id=#{questionId}
+            </if>
+        </where>
+        ORDER BY q.create_time DESC
+    </select>
+
+    <select id="getQuestion" resultMap="questionResultMap"
+            parameterType="java.lang.Long">
+        SELECT
+        q.id,
+        q.answer,
+        q.create_time,
+        q.creator_id,
+        q.question,
+        q.reply_time,
+        q.replyer_id,
+        q.useful,
+        bu1.username creator_name,
+        bu2.username replyer_name
+        FROM question q
+        LEFT JOIN benz_user bu1 ON q.creator_id = bu1.id
+        LEFT JOIN benz_user bu2 ON q.replyer_id = bu2.id
+        WHERE q.id=#{questionId}
+    </select>
+
+</mapper>

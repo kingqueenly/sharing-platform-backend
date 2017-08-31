@@ -2,11 +2,6 @@ package com.sharingplatform.user.adapter.web;
 
 import com.sharingplatform.framework.domain.QueryParameter;
 import com.sharingplatform.framework.query.PagedList;
-import com.sharingplatform.usecase.application.BUApplicationService;
-import com.sharingplatform.usecase.application.BUCreateCommand;
-import com.sharingplatform.usecase.application.BUUpdateCommand;
-import com.sharingplatform.usecase.query.BUQuery;
-import com.sharingplatform.usecase.query.BUResult;
 import com.sharingplatform.user.application.RoleApplicationService;
 import com.sharingplatform.user.application.RoleCreateCommand;
 import com.sharingplatform.user.application.RoleUpdateCommand;

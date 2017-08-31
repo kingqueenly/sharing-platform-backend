@@ -4,9 +4,7 @@ import com.sharingplatform.framework.domain.QueryParameter;
 import com.sharingplatform.framework.query.BaseQuery;
 import com.sharingplatform.framework.query.PageParameter;
 import com.sharingplatform.framework.query.PagedList;
-import com.sharingplatform.usecase.domain.event.UseCaseViewedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,5 @@
 package com.sharingplatform.user.domain.score;
 
-import java.util.Date;
-
 /**
  * Created by paulliu on 2017/1/17.
  */

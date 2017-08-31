@@ -1,0 +1,42 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.datagovernance.query.FlowInstanceMapper">
+
+    <resultMap id="flowInstanceResultMap" type="com.sharingplatform.datagovernance.query.FlowInstanceResult">
+        <id column="id" property="id"/>
+        <result column="application_form_id" property="applicationFormId"></result>
+        <result column="application_name" property="applicationName"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="current_step" property="currentStep"></result>
+        <result column="current_task" property="currentTask"></result>
+        <result column="status" property="status"></result>
+        <result column="update_time" property="updateTime"></result>
+        <result column="applicant" property="applicant"></result>
+    </resultMap>
+
+    <select id="findFlowInstances" resultMap="flowInstanceResultMap">
+        SELECT
+            id,
+            application_form_id,
+            application_name,
+            create_time,
+            current_step,
+            current_task,
+            status,
+            update_time,
+            applicant
+        FROM flow_instance
+        WHERE applicant = #{applicant}
+        ORDER BY create_time DESC
+    </select>
+    <select id="findSupervisor" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT
+          t.user_id
+        FROM flow_instance f
+        INNER JOIN task t ON f.id = t.flow_instance_id
+        WHERE f.applicant = #{applicant} AND
+               t.step_key = 'supervisor-approval' AND
+               t.status = 'completed' AND
+               ROWNUM &lt; 2
+    </select>
+</mapper>

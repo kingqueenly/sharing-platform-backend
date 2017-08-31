@@ -1,7 +1,5 @@
 package com.sharingplatform.usecase.query;
 
-import com.sharingplatform.usecase.domain.ContributionBU;
-
 import java.util.List;
 
 /**
@@ -11,10 +9,13 @@ public class UseCaseResult {
     private String id;
     private String subject;
     private List<ValueResult> values;
+    private String vtext;
     private String scenario;
     private List<ValueResult> dataSource;
+    private String dataSourceOther;
     private String dataTypeDescription;
     private List<ValueResult> dataAnalysisModel;
+    private String dataAnalysisModelOther;
     private String analysisMethodResultText;
     private String validationMethodResultText;
     private String implMethodResultText;
@@ -44,15 +45,18 @@ public class UseCaseResult {
     public UseCaseResult() {
     }
 
-    public UseCaseResult(String email, String id, String subject, List<ValueResult> values, String scenario, List<ValueResult> dataSource, String dataTypeDescription, List<ValueResult> dataAnalysisModel, String analysisMethodResultText, String validationMethodResultText, String implMethodResultText, List<BUResult> contributionBU, String stage, String fromDate, String toDate, String needHelp, String createTime, List<FileResult> validationMethodResultFiles, List<FileResult> analysisMethodResultFiles, List<FileResult> implMethodResultFiles, List<FileResult> attachments, String viewNum, String commentNum, String likeNum, String shareNum, String userId, String userName, String userImgUrl, String userDepartment, Integer userScore, String userLevel, String referenceCase, String phase) {
+    public UseCaseResult(String email, String id, String subject, List<ValueResult> values, String vtext, String scenario, List<ValueResult> dataSource, String dataSourceOther, String dataTypeDescription, List<ValueResult> dataAnalysisModel, String dataAnalysisModelOther, String analysisMethodResultText, String validationMethodResultText, String implMethodResultText, List<BUResult> contributionBU, String stage, String fromDate, String toDate, String needHelp, String createTime, List<FileResult> validationMethodResultFiles, List<FileResult> analysisMethodResultFiles, List<FileResult> implMethodResultFiles, List<FileResult> attachments, String viewNum, String commentNum, String likeNum, String shareNum, String userId, String userName, String userImgUrl, String userDepartment, Integer userScore, String userLevel, String referenceCase, String phase) {
         this.id = id;
         this.email = email;
         this.subject = subject;
         this.values = values;
+        this.vtext = vtext;
         this.scenario = scenario;
         this.dataSource = dataSource;
+        this.dataSourceOther = dataSourceOther;
         this.dataTypeDescription = dataTypeDescription;
         this.dataAnalysisModel = dataAnalysisModel;
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
         this.analysisMethodResultText = analysisMethodResultText;
         this.validationMethodResultText = validationMethodResultText;
         this.implMethodResultText = implMethodResultText;
@@ -320,6 +324,14 @@ public class UseCaseResult {
         this.dataAnalysisModel = dataAnalysisModel;
     }
 
+    public String getDataAnalysisModelOther() {
+        return dataAnalysisModelOther;
+    }
+
+    public void setDataAnalysisModelOther(String dataAnalysisModelOther) {
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -344,16 +356,35 @@ public class UseCaseResult {
         this.email = email;
     }
 
+    public String getDataSourceOther() {
+        return dataSourceOther;
+    }
+
+    public void setDataSourceOther(String dataSourceOther) {
+        this.dataSourceOther = dataSourceOther;
+    }
+
+    public String getVtext() {
+        return vtext;
+    }
+
+    public void setVtext(String vtext) {
+        this.vtext = vtext;
+    }
+
     @Override
     public String toString() {
         return "UseCaseResult{" +
                 "id='" + id + '\'' +
                 ", subject='" + subject + '\'' +
+                ", vtext='" + vtext + '\'' +
                 ", values='" + values + '\'' +
                 ", scenario='" + scenario + '\'' +
                 ", dataSource=" + dataSource +
+                ", dataSourceOther=" + dataSourceOther +
                 ", dataTypeDescription='" + dataTypeDescription + '\'' +
                 ", dataAnalysisModel=" + dataAnalysisModel +
+                ", dataAnalysisModelOther=" + dataAnalysisModelOther +
                 ", analysisMethodResultText='" + analysisMethodResultText + '\'' +
                 ", validationMethodResultText='" + validationMethodResultText + '\'' +
                 ", implMethodResultText='" + implMethodResultText + '\'' +

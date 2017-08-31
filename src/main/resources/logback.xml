@@ -3,4 +3,6 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <logger name="com.sharingplatform.usecase.query.UseCaseMapper" level="DEBUG"/>
     <logger name="com.sharingplatform.usecase.query.StatisticsMapper" level="DEBUG"/>
+    <logger name="org.springframework.scheduling" level="INFO"/>
 </configuration>
+

@@ -2,8 +2,6 @@ package com.sharingplatform.usecase.application;
 
 import com.sharingplatform.framework.domain.ServiceCommand;
 
-import java.util.List;
-
 /**
  * Created by paulliu on 2016/12/12.
  */

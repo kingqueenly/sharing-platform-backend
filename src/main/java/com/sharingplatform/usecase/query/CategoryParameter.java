@@ -1,7 +1,5 @@
 package com.sharingplatform.usecase.query;
 
-import com.sharingplatform.framework.domain.QueryParameter;
-
 import java.util.List;
 
 /**

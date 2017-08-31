@@ -1,11 +1,7 @@
 package com.sharingplatform.usecase.domain;
 
 import com.sharingplatform.framework.AssertionConcern;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

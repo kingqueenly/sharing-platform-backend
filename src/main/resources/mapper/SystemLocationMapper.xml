@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.datagovernance.query.SystemLocationMapper">
+
+    <resultMap id="systemLocationValueResult" type="com.sharingplatform.usecase.query.ValueResult">
+        <id column="id" property="id"></id>
+        <result column="text" property="text"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="systemLocationValueResult">
+        SELECT id, text FROM system_location
+    </select>
+
+</mapper>

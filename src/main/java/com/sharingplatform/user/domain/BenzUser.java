@@ -1,5 +1,7 @@
 package com.sharingplatform.user.domain;
 
+import com.sharingplatform.user.application.UserUpdateCommand;
+
 public class BenzUser {
     private Long id;
     private String userId;
@@ -24,8 +26,8 @@ public class BenzUser {
     public BenzUser() {
     }
 
-    public BenzUser(String userId, String appellation, String username, String imgUrl, String organization, String department, String workArea, String professional, String email, String phone, String mobile, Integer score, String level, Authority authority, String role, Boolean isDCRemember, UserCommentLikeShare userCommentLikeShare) {
-        this.id = DomainRegistry.userRepository().nextIdentity();
+    public BenzUser(Long id, String userId, String appellation, String username, String imgUrl, String organization, String department, String workArea, String professional, String email, String phone, String mobile, Integer score, String level, Authority authority, String role, Boolean isDCRemember, UserCommentLikeShare userCommentLikeShare) {
+        this.id = id;
         this.userId = userId;
         this.appellation = appellation;
         this.username = username;
@@ -118,9 +120,13 @@ public class BenzUser {
         this.score = score;
     }
 
-    public boolean getDeleted() { return deleted; }
+    public boolean getDeleted() {
+        return deleted;
+    }
 
-    public void setDeleted(boolean deleted) { this.deleted = deleted; }
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 
     public String getLevel() {
         return level;
@@ -158,8 +164,34 @@ public class BenzUser {
         this.setIsDCRemember(isDCRemember);
         this.setDeleted(deleted);
         DomainRegistry.userRepository().save(this);
-
     }
+
+    public void update(UserUpdateCommand command) {
+        if(command.getUsername() != null) {
+            this.username = command.getUsername();
+        }
+        if(command.getDepartment() != null) {
+            this.department = command.getDepartment();
+        }
+        if(command.getUserId() != null) {
+            this.userId = command.getUserId();
+        }
+        if(command.getMobile() != null) {
+            this.mobile = command.getMobile();
+        }
+        if(command.getEmail() != null) {
+            this.email = command.getEmail();
+        }
+        if(command.getPhone() != null) {
+            this.phone = command.getPhone();
+        }
+        DomainRegistry.userRepository().save(this);
+    }
+
+    public void update() {
+        DomainRegistry.userRepository().save(this);
+    }
+
     public void delete() {
         DomainRegistry.userRepository().delete(this);
     }

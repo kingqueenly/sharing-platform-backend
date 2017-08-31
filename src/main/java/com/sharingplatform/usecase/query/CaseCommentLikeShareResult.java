@@ -1,7 +1,5 @@
 package com.sharingplatform.usecase.query;
 
-import com.sharingplatform.usecase.domain.DomainRegistry;
-
 /**
  * Created by hongying.fu on 1/14/2017.
  */

@@ -1,7 +1,6 @@
 package com.sharingplatform.usecase.application;
 
 import com.sharingplatform.framework.AssertionConcern;
-import com.sharingplatform.usecase.domain.ContributionBU;
 import com.sharingplatform.usecase.domain.Value;
 import com.sharingplatform.usecase.domain.ValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;

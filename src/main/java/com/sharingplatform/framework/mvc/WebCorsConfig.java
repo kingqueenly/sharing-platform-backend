@@ -1,4 +1,4 @@
-//package com.sharingplatform.framework.mvc;
+//package com.benz.framework.mvc;
 //
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.web.servlet.config.annotation.CorsRegistry;

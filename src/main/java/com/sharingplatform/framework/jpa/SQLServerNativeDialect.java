@@ -2,7 +2,6 @@ package com.sharingplatform.framework.jpa;
 
 import org.hibernate.dialect.SQLServer2012Dialect;
 import org.hibernate.type.StandardBasicTypes;
-import org.hibernate.type.StringNVarcharType;
 
 import java.sql.Types;
 

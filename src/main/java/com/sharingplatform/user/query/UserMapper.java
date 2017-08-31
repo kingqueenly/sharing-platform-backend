@@ -1,6 +1,6 @@
 package com.sharingplatform.user.query;
 
-import com.sharingplatform.user.domain.BenzUser;
+import com.sharingplatform.user.application.UserCreateCommand;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -19,7 +19,11 @@ public interface UserMapper {
 
     List<LevelResult> getLevelRule();
 
-    BenzUser findByUserId(String userId);
+    //BenzUser findByUserId(String userId);
 
     List<UserProfile> getDataCommunity(UserParameter parameter);
+
+    List<UserCreateCommand> findWiWUsers();
+
+    Long findId(String userId);
 }

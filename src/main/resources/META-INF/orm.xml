@@ -220,4 +220,44 @@
             <id name="id"></id>
         </attributes>
     </entity>
+    <entity class="com.sharingplatform.faq.domain.Question">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.SystemName">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.SystemNameConfig">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.DataType">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.SystemLocation">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.DataUsageApplication">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.Task">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
+    <entity class="com.sharingplatform.datagovernance.domain.FlowInstance">
+        <attributes>
+            <id name="id"></id>
+        </attributes>
+    </entity>
 </entity-mappings>

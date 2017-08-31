@@ -1,7 +1,6 @@
 package com.sharingplatform.usecase.query;
 
 import com.sharingplatform.framework.domain.QueryParameter;
-import com.sharingplatform.usecase.domain.CaseCommentLikeShare;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

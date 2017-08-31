@@ -1,6 +1,5 @@
 package com.sharingplatform.usecase.adapter.web;
 
-import com.sharingplatform.usecase.application.LikeCommand;
 import com.sharingplatform.usecase.application.ShareApplicationService;
 import com.sharingplatform.usecase.application.ShareCommand;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.sharingplatform.user.query;
 
 import com.sharingplatform.framework.domain.QueryParameter;
-import com.sharingplatform.usecase.query.BUResult;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 import com.sharingplatform.framework.domain.DomainEventPublisher;
 import com.sharingplatform.usecase.domain.event.UseCaseCreatedEvent;
-import org.springframework.context.annotation.Lazy;
 
 import java.util.Date;
 import java.util.List;
@@ -48,6 +47,10 @@ public class UseCase {
         joinColumns=@JoinColumn(name="use_case_id", referencedColumnName="ID"),
         inverseJoinColumns=@JoinColumn(name="data_analysis_model_id", referencedColumnName="ID"))
     private List<DataAnalysisModel> dataAnalysisModels;
+    @Column(columnDefinition = "varchar2(500)")
+    private String dataAnalysisModelOther;
+    @Column(columnDefinition = "varchar2(500)")
+    private String dataSourceOther;
     private AnalysisMethodResult analysisMethodResult;
     private ValidationMethodResult validationMethodResult;
     private ImplMethodResult implMethodResult;
@@ -206,6 +209,20 @@ public class UseCase {
         this.dataAnalysisModels = dataAnalysisModels;
     }
 
+    public String getDataSourceOther() {
+        return dataSourceOther;
+    }
+
+    public void setDataSourceOther(String dataSourceOther) {
+        this.dataSourceOther = dataSourceOther;
+    }
+
+    public String getDataAnalysisModelOther(){ return dataAnalysisModelOther; }
+
+    public void setDataAnalysisModelOther(String dataAnalysisModelOther){
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
+    }
+
     public AttachmentList getAttachments() {
         return attachments;
     }
@@ -225,14 +242,16 @@ public class UseCase {
     public UseCase() {
     }
 
-    public UseCase(CaseSubject subject, List<Value> values, String scenario, List<DataSource> dataSources, String dataTypeDescription, List<DataAnalysisModel> dataAnalysisModels, AnalysisMethodResult analysisMethodResult, ValidationMethodResult validationMethodResult, ImplMethodResult implMethodResult, List<ContributionBU> contributionBU, String stage, TimeFrame timeFrame, String needHelp, AttachmentList attachments, CaseCommentLikeShare caseCommentLikeShare, UserInfo userInfo, String referenceCase,String phase) {
+    public UseCase(CaseSubject subject, List<Value> values, String scenario, List<DataSource> dataSources, String dataSourceOther, String dataTypeDescription, List<DataAnalysisModel> dataAnalysisModels, String dataAnalysisModelOther, AnalysisMethodResult analysisMethodResult, ValidationMethodResult validationMethodResult, ImplMethodResult implMethodResult, List<ContributionBU> contributionBU, String stage, TimeFrame timeFrame, String needHelp, AttachmentList attachments, CaseCommentLikeShare caseCommentLikeShare, UserInfo userInfo, String referenceCase,String phase) {
         this.id = DomainRegistry.useCaseRepository().nextIdentity();
         this.subject = subject;
         this.values = values;
         this.scenario = scenario;
         this.dataSources = dataSources;
+        this.dataSourceOther = dataSourceOther;
         this.dataTypeDescription = dataTypeDescription;
         this.dataAnalysisModels = dataAnalysisModels;
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
         this.analysisMethodResult = analysisMethodResult;
         this.validationMethodResult = validationMethodResult;
         this.implMethodResult = implMethodResult;
@@ -254,16 +273,18 @@ public class UseCase {
         DomainEventPublisher.publishEvent(new UseCaseCreatedEvent(this.userInfo.getId(), this.id));
     }
 
-    public void update(CaseSubject subject, List<Value> values, String scenario, List<DataSource> dataSource, String dataTypeDescription, List<DataAnalysisModel> dataAnalysisModels,
-                       AnalysisMethodResult analysisMethodResult, ValidationMethodResult validationMethodResult, ImplMethodResult implMethodResult,
+    public void update(CaseSubject subject, List<Value> values, String scenario, List<DataSource> dataSource, String dataSourceOther, String dataTypeDescription, List<DataAnalysisModel> dataAnalysisModels,
+                       String dataAnalysisModelOther, AnalysisMethodResult analysisMethodResult, ValidationMethodResult validationMethodResult, ImplMethodResult implMethodResult,
                        List<ContributionBU> contributionBU, String stage, TimeFrame timeFrame,
                        String help, List<Attachment> attachments,String phase) {
         setSubject(subject);
         setValues(values);
         setScenario(scenario);
         setDataSources(dataSource);
+        setDataSourceOther(dataSourceOther);
         setDataTypeDescription(dataTypeDescription);
         setDataAnalysisModels(dataAnalysisModels);
+        setDataAnalysisModelOther(dataAnalysisModelOther);
         setContributionBU(contributionBU);
         setStage(stage);
         setTimeFrame(timeFrame);

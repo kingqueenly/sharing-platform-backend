@@ -24,6 +24,18 @@
         <result column="deleted" property="deleted"></result>
     </resultMap>
 
+    <resultMap id="wiwUserResultMap" type="com.sharingplatform.user.application.UserCreateCommand">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="userId"></result>
+        <result column="appellation" property="appellation"></result>
+        <result column="username" property="username"></result>
+        <result column="organization" property="organization"></result>
+        <result column="department" property="department"></result>
+        <result column="email" property="email"></result>
+        <result column="phone" property="phone"></result>
+        <result column="mobile" property="mobile"></result>
+    </resultMap>
+
     <select id="findById" resultMap="userResultMap">
         SELECT
         u.id,
@@ -150,4 +162,11 @@
             AND role=#{role}
         </if>
     </select>
+    <select id="findWiWUsers"  resultMap="wiwUserResultMap">
+        SELECT IdGenerator.nextval id, department, organization, user_id, username, appellation, mobile, email, phone FROM wiw_user
+    </select>
+    <select id="findId" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT id FROM benz_user WHERE user_id = #{userId}
+    </select>
+
 </mapper>

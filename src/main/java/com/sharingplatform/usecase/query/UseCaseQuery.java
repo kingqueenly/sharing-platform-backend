@@ -7,7 +7,6 @@ import com.sharingplatform.framework.query.PagedList;
 import com.sharingplatform.usecase.domain.CategoryList;
 import com.sharingplatform.usecase.domain.PhaseList;
 import com.sharingplatform.usecase.domain.StageList;
-import com.sharingplatform.usecase.domain.UseCase;
 import com.sharingplatform.usecase.domain.event.UseCaseViewedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -36,8 +35,8 @@ public class UseCaseQuery extends BaseQuery {
                 if(parameter!=null){
                     String subject = parameter.getSubject();
                     if (subject != null && !"".equals(subject))
-                        parameter.setSubject(subject.toUpperCase());
-                }
+                    parameter.setSubject(subject.toUpperCase());
+            }
                 return useCaseMapper.findAll(parameter);
             }
         }, new PageParameter(pageNum));

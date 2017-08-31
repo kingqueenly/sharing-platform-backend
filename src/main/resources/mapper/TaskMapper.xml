@@ -1,0 +1,102 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.datagovernance.query.TaskMapper">
+
+    <resultMap id="taskResultMap" type="com.sharingplatform.datagovernance.query.TaskResult">
+        <id column="id" property="id"/>
+        <result column="flow_instance_id" property="flowInstanceId"></result>
+        <result column="step_key" property="stepKey"></result>
+        <result column="task_key" property="taskKey"></result>
+        <result column="application_name" property="applicationName"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="update_time" property="updateTime"></result>
+        <result column="application_form_id" property="applicationFormId"></result>
+        <result column="prev_form_id" property="prevFormId"></result>
+        <result column="status" property="status"></result>
+        <result column="comments" property="comments"></result>
+        <result column="button_name" property="buttonName"></result>
+        <result column="application_submit_time" property="applicationSubmitTime"></result>
+        <result column="applicant" property="applicant"></result>
+    </resultMap>
+
+    <select id="findTasks" resultMap="taskResultMap">
+        SELECT
+            t.id,
+            t.flow_instance_id,
+            t.step_key,
+            t.task_key,
+            t.application_name,
+            t.user_id,
+            t.create_time,
+            t.update_time,
+            t.application_form_id,
+            t.prev_form_id,
+            t.status,
+            t.comments,
+            t.button_name,
+            f.create_time application_submit_time,
+            f.applicant
+        FROM task t INNER JOIN flow_instance f ON t.flow_instance_id = f.id
+        WHERE t.user_id = #{userId} AND t.status = #{status}
+        ORDER BY t.create_time DESC
+    </select>
+    <select id="findOne" parameterType="com.sharingplatform.datagovernance.query.TaskQueryParameter" resultMap="taskResultMap">
+        SELECT * FROM (
+            SELECT
+                t.id,
+                t.flow_instance_id,
+                t.step_key,
+                t.task_key,
+                t.application_name,
+                t.user_id,
+                t.create_time,
+                t.update_time,
+                t.application_form_id,
+                t.prev_form_id,
+                t.status,
+                t.comments,
+                t.button_name,
+                f.create_time application_submit_time,
+                f.applicant
+            FROM task t INNER JOIN flow_instance f ON t.flow_instance_id = f.id
+            <where>
+                <if test="flowInstanceId != null and flowInstanceId != ''">
+                    and t.flow_instance_id=#{flowInstanceId}
+                </if>
+                <if test="userId != null and userId != ''">
+                    and t.user_id=#{userId}
+                </if>
+                <if test="taskId != null and taskId != ''">
+                    and t.id=#{taskId}
+                </if>
+            </where>
+            ORDER BY t.create_time DESC
+        ) t WHERE ROWNUM &lt; 2
+    </select>
+    <select id="getInprocessCount" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM task
+        WHERE flow_instance_id = #{flowInstanceId} AND step_key = #{stepKey} AND status = 'in process'
+    </select>
+    <select id="listFlowTracking" parameterType="java.lang.Long" resultMap="taskResultMap">
+        SELECT
+            t.id,
+            t.flow_instance_id,
+            t.step_key,
+            t.task_key,
+            t.application_name,
+            t.user_id,
+            t.create_time,
+            t.update_time,
+            t.application_form_id,
+            t.prev_form_id,
+            t.status,
+            t.comments,
+            t.button_name,
+            f.create_time application_submit_time,
+            f.applicant
+        FROM task t INNER JOIN flow_instance f ON t.flow_instance_id = f.id
+        WHERE t.flow_instance_id = #{flowInstanceId}
+        ORDER BY t.update_time DESC, t.create_time DESC
+    </select>
+</mapper>

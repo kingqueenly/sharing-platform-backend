@@ -85,4 +85,10 @@ public class UserController {
         System.out.println("UserParameter parameter:"+parameter);
         return userQuery.getDataCommunity(parameter);
     }
+
+    @RequestMapping(value = "/init_wiw_users", method = RequestMethod.GET)
+    public String init() {
+        userApplicationService.createWiWUsers();
+        return "success";
+    }
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sharingplatform.datagovernance.query.ApplicationMapper">
+
+    <resultMap id="applicationResult" type="com.sharingplatform.datagovernance.query.ApplicationResult">
+        <id column="id" property="id"></id>
+		<result column="aaar" property="aaar"/>
+		<result column="aaptr" property="aaptr"/>
+		<result column="rfyud" property="rfyud"/>
+		<result column="atoc" property="atoc"/>
+		<result column="atoc_dsec" property="atocDsec"/>
+		<result column="last_application_id" property="lastApplicationId"/>
+		<result column="additional_info" property="additionalInfo"/>
+		<result column="aggregated" property="aggregated"/>
+		<result column="anonymous" property="anonymous"/>
+		<result column="can_track" property="canTrack"/>
+		<result column="consent_term" property="consentTerm"/>
+		<result column="customer_consent_obtained" property="customerConsentObtained"/>
+		<result column="data_obtained" property="dataObtained"/>
+		<result column="desc_of_info" property="descOfInfo"/>
+		<result column="how_data_use" property="howDataUse"/>
+		<result column="how_long_retained" property="howLongRetained"/>
+		<result column="icd" property="icd"/>
+		<result column="ingested" property="ingested"/>
+		<result column="ipd" property="ipd"/>
+		<result column="no_share" property="noShare"/>
+		<result column="other_security" property="otherSecurity"/>
+		<result column="other_transmitter" property="otherTransmitter"/>
+		<result column="pm_transmitter" property="pmTransmitter"/>
+		<result column="security_with_encryption" property="securityWithEncryption"/>
+		<result column="security_with_other" property="securityWithOther"/>
+		<result column="security_with_secure_transport" property="securityWithSecureTransport"/>
+		<result column="shared_affiliate" property="sharedAffiliate"/>
+		<result column="shared_custom" property="sharedCustom"/>
+		<result column="transmit_by_email" property="transmitByEmail"/>
+		<result column="transmit_by_other" property="transmitByOther"/>
+		<result column="transmit_bypm" property="transmitByPM"/>
+		<result column="transmit_bysw" property="transmitBySW"/>
+		<result column="use_of_data" property="useOfData"/>
+		<result column="yes_for_affiliate" property="yesForAffiliate"/>
+		<result column="yes_for_custom" property="yesForCustom"/>
+		<collection property="systemNames" ofType="com.sharingplatform.datagovernance.query.SystemNameResult">
+			<result column="snid" property="id"/>
+			<result column="sntext" property="text"/>
+		</collection>
+		<collection property="systemLocations" ofType="com.sharingplatform.datagovernance.query.SystemLocationResult">
+			<result column="slid" property="id"/>
+			<result column="sltext" property="text"/>
+		</collection>
+		<collection property="dataTypes" ofType="com.sharingplatform.datagovernance.query.DataTypeResult">
+			<result column="dtid" property="id"/>
+			<result column="dttext" property="text"/>
+		</collection>
+    </resultMap>
+
+    <select id="findById" resultMap="applicationResult" parameterType="java.lang.Long">
+		SELECT
+			sn.id snid,
+			sn.text sntext,
+			sl.id slid,
+			sl.text sltext,
+			dt.id dtid,
+			dt.text dttext,
+			dua.id,
+			dua.aaar,
+			dua.aaptr,
+			dua.rfyud,
+			dua.atoc,
+			dua.atoc_dsec,
+			dua.last_application_id,
+			dua.additional_info,
+			dua.aggregated,
+			dua.anonymous,
+			dua.can_track,
+			dua.consent_term,
+			dua.customer_consent_obtained,
+			dua.data_obtained,
+			dua.desc_of_info,
+			dua.how_data_use,
+			dua.how_long_retained,
+			dua.icd,
+			dua.ingested,
+			dua.ipd,
+			dua.no_share,
+			dua.other_security,
+			dua.other_transmitter,
+			dua.pm_transmitter,
+			dua.security_with_encryption,
+			dua.security_with_other,
+			dua.security_with_secure_transport,
+			dua.shared_affiliate,
+			dua.shared_custom,
+			dua.transmit_by_email,
+			dua.transmit_by_other,
+			dua.transmit_bypm,
+			dua.transmit_bysw,
+			dua.use_of_data,
+			dua.yes_for_affiliate,
+			dua.yes_for_custom
+		FROM data_usage_application dua
+		LEFT JOIN application_system_name asn ON dua.id = asn.application_id
+		LEFT JOIN system_name sn ON asn.system_name_id = sn.id
+		LEFT JOIN application_system_location asl ON dua.id = asl.application_id
+		LEFT JOIN system_location sl ON asl.system_location_id = sl.id
+		LEFT JOIN application_data_type adt ON dua.id = adt.application_id
+		LEFT JOIN data_type dt ON dt.id = adt.data_type_id
+		WHERE dua.id = #{id}
+    </select>
+
+</mapper>

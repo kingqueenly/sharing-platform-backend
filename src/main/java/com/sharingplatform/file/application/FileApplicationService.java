@@ -3,9 +3,7 @@ package com.sharingplatform.file.application;
 import com.sharingplatform.file.domain.FTPUpload;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URL;
 
 /**
  * Created by hongying.fu on 12/21/2016.

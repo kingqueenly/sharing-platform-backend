@@ -1,12 +1,14 @@
 package com.sharingplatform.user.application;
 
 import com.sharingplatform.framework.domain.ServiceCommand;
+import com.sharingplatform.user.ProvisioningServiceServiceStub;
 
 /**
  * Created by paulliu on 2016/12/7.
  */
-public class UserUpdateCommand extends ServiceCommand {
+public class UserUpdateCommand extends UserCommand {
     private Long id;
+    private String userId;
     private String appellation;//Mr. Miss. Ms.
     private String username;
 //    private String password;
@@ -25,6 +27,44 @@ public class UserUpdateCommand extends ServiceCommand {
 
     public UserUpdateCommand() {
     }
+
+    public UserUpdateCommand(ProvisioningServiceServiceStub.ChangeRecord changeRecord) {
+        ProvisioningServiceServiceStub.ArrayOfAttribute arrayOfAttribute = changeRecord.getNewAttrs();
+        ProvisioningServiceServiceStub.Attribute[] attributes = arrayOfAttribute.getItem();
+        this.id = changeRecord.getId();
+        for (ProvisioningServiceServiceStub.Attribute attr : attributes) {
+            String attrName = attr.getName();
+            String attrValue = "";
+            if (attr.getValues() != null && attr.getValues().getItem() != null) {
+                attrValue = attr.getValues().getItem()[0];
+            }
+
+            if ("c".equals(attrName)) {
+
+            } else if ("cn".equals(attrName)) {
+                this.username = attrValue;
+            } else if ("dcxDepartmentAbbr".equals(attrName)) {
+                this.department = attrValue;
+            } else if ("dcxDepartmentName".equals(attrName)) {
+
+            } else if ("dcxLocationCode".equals(attrName)) {
+
+            } else if ("dcxPlant1".equals(attrName)) {
+                this.organization = plants.get(attrValue);
+            } else if ("dcxSex".equals(attrName)) {
+
+            } else if ("uid".equals(attrName)) {
+                this.userId = attrValue;
+            } else if ("mobile".equals(attrName)) {
+                this.mobile = attrValue;
+            } else if ("mail".equals(attrName)) {
+                this.email = attrValue;
+            } else if ("telephoneNumber".equals(attrName)) {
+                this.phone = attrValue;
+            }
+        }
+    }
+
     public Boolean getDeleted() {
         return deleted;
     }
@@ -39,6 +79,14 @@ public class UserUpdateCommand extends ServiceCommand {
 
     public void setOrganization(String organization) {
         this.organization = organization;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Long getId() {

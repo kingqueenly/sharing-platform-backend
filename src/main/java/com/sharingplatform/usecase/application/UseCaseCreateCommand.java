@@ -14,8 +14,10 @@ public class UseCaseCreateCommand extends ServiceCommand {
     private List<ValueCommand> values;
     private String scenario;
     private List<ValueCommand> dataSource;
+    private String dataSourceOther;
     private String dataTypeDescription;
     private List<ValueCommand> dataAnalysisModel;
+    private String dataAnalysisModelOther;
     private String validationMethodResultText;
     private List<FileCommand> validationMethodResultFiles;
     private String analysisMethodResultText;
@@ -35,13 +37,15 @@ public class UseCaseCreateCommand extends ServiceCommand {
     public UseCaseCreateCommand() {
     }
 
-    public UseCaseCreateCommand(String subject, List<ValueCommand> values, String scenario, List<ValueCommand> dataSource, String dataTypeDescription, List<ValueCommand> dataAnalysisModel, String validationMethodResultText, List<FileCommand> validationMethodResultFiles, String analysisMethodResultText, List<FileCommand> analysisMethodResultFiles, String implMethodResultText, List<FileCommand> implMethodResultFiles, List<ContributionBU> contributionBU, String stage, String fromDate, String toDate, String needHelp, List<AttachmentCommand> attachments, String referenceCase, String phase) {
+    public UseCaseCreateCommand(String subject, List<ValueCommand> values, String scenario, List<ValueCommand> dataSource, String dataSourceOther, String dataTypeDescription, List<ValueCommand> dataAnalysisModel,String dataAnalysisModelOther, String validationMethodResultText, List<FileCommand> validationMethodResultFiles, String analysisMethodResultText, List<FileCommand> analysisMethodResultFiles, String implMethodResultText, List<FileCommand> implMethodResultFiles, List<ContributionBU> contributionBU, String stage, String fromDate, String toDate, String needHelp, List<AttachmentCommand> attachments, String referenceCase, String phase) {
         this.subject = subject;
         this.values = values;
         this.scenario = scenario;
         this.dataSource = dataSource;
+        this.dataSourceOther = dataSourceOther;
         this.dataTypeDescription = dataTypeDescription;
         this.dataAnalysisModel = dataAnalysisModel;
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
         this.validationMethodResultText = validationMethodResultText;
         this.validationMethodResultFiles = validationMethodResultFiles;
         this.analysisMethodResultText = analysisMethodResultText;
@@ -112,6 +116,14 @@ public class UseCaseCreateCommand extends ServiceCommand {
 
     public void setDataAnalysisModel(List<ValueCommand> dataAnalysisModel) {
         this.dataAnalysisModel = dataAnalysisModel;
+    }
+
+    public String getDataAnalysisModelOther(){
+        return dataAnalysisModelOther;
+    }
+
+    public void setDataAnalysisModelOther(String dataAnalysisModelOther){
+        this.dataAnalysisModelOther = dataAnalysisModelOther;
     }
 
     public String getValidationMethodResultText() {
@@ -208,6 +220,14 @@ public class UseCaseCreateCommand extends ServiceCommand {
 
     public void setAttachments(List<AttachmentCommand> attachments) {
         this.attachments = attachments;
+    }
+
+    public String getDataSourceOther() {
+        return dataSourceOther;
+    }
+
+    public void setDataSourceOther(String dataSourceOther) {
+        this.dataSourceOther = dataSourceOther;
     }
 
     public String getReferenceCase() {

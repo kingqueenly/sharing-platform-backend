@@ -3,6 +3,7 @@ package com.sharingplatform.user.query;
 import com.sharingplatform.framework.query.BaseQuery;
 import com.sharingplatform.framework.query.PageParameter;
 import com.sharingplatform.framework.query.PagedList;
+import com.sharingplatform.user.application.UserCreateCommand;
 import com.sharingplatform.user.domain.BenzUser;
 import com.sharingplatform.user.domain.Department;
 import com.sharingplatform.user.domain.Organization;
@@ -27,6 +28,10 @@ public class UserQuery extends BaseQuery {
 
     public UserProfile findById(Long id) {
         return userMapper.findById(id);
+    }
+
+    public List<UserCreateCommand> findWiWUsers() {
+        return userMapper.findWiWUsers();
     }
 
     /*this method used for get profile when logs in.
@@ -73,9 +78,13 @@ public class UserQuery extends BaseQuery {
         return userMapper.getLevelRule();
     }
 
-    public BenzUser findByUserId(String userId) {
-        BenzUser user = userMapper.findByUserId(userId);
-        return user;
+//    public BenzUser findByUserId(String userId) {
+//        BenzUser user = userMapper.findByUserId(userId);
+//        return user;
+//    }
+
+    public Long findId(String userId) {
+        return userMapper.findId(userId);
     }
 
     public List<Organization> getDataCommunity(UserParameter parameter) {

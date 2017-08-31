@@ -4,8 +4,6 @@ import com.sharingplatform.framework.domain.QueryParameter;
 import com.sharingplatform.framework.query.BaseQuery;
 import com.sharingplatform.framework.query.PageParameter;
 import com.sharingplatform.framework.query.PagedList;
-import com.sharingplatform.usecase.query.BUMapper;
-import com.sharingplatform.usecase.query.BUResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
